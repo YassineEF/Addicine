@@ -4,4 +4,94 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #1B1B1B;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 2% 2%;
+}
+header .center {
+  text-align: center;
+  margin-top: 5px;
+}
+header .center ul {
+  display: flex;
+  justify-content: space-between;
+}
+header .center ul li {
+  list-style: none;
+  margin: 10px 40px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.5rem;
+  color: #FFFFFF;
+}
+header .center ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+header .right .searchBar {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 1s;
+  width: 200px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
+}
+header .right .searchBar .search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+header .right .searchBar .fa {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #07051a;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+header .right .searchBar:hover,
+header .right .searchBar:valid {
+  cursor: pointer;
+}
+header .right .searchBar:hover .search,
+header .right .searchBar:valid .search {
+  display: block;
+}
+header .right .searchBar .fa:hover,
+header .right .searchBar .fa:valid {
+  background: #1394DA;
+  color: white;
+}
+
+.line {
+  margin: 2%;
+  height: 2%;
+  border-bottom: 1px solid #FFFFFF;
+}
+
 /*# sourceMappingURL=main.css.map */

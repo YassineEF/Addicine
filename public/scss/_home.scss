@@ -1,0 +1,64 @@
+main{
+    // width: 100%;
+    article{
+        text-align: center;
+        color: $secondary-color;
+        font-family: $font;
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+    .carousel{
+        margin: 3%;
+        height: 40vh;
+        position: relative;
+        .slider{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity .5s;
+            align-items: center;
+            border-radius: 55px 0;
+            &.active{
+                opacity: 1;
+            }
+        }
+        .titleFilmPopulaire{
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px 10px;
+            color: $secondary-color;
+            font-family: $font;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            opacity: 0;
+            border-radius: 0 55px;
+            text-align: center;
+            &.active{
+                opacity: 1;
+            }
+
+        }
+        .next, .previous{
+            color: $secondary-color;
+            font-size: 3rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .next{
+            right: 1rem;
+        }
+        .previous{
+            left: 1rem;
+        }
+    }
+
+
+}

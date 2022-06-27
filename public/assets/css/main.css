@@ -4,6 +4,65 @@
   box-sizing: border-box;
 }
 
+main article {
+  text-align: center;
+  color: #FFFFFF;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+main .carousel {
+  margin: 3%;
+  height: 40vh;
+  position: relative;
+}
+main .carousel .slider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s;
+  align-items: center;
+  border-radius: 55px 0;
+}
+main .carousel .slider.active {
+  opacity: 1;
+}
+main .carousel .titleFilmPopulaire {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  color: #FFFFFF;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0;
+  border-radius: 0 55px;
+  text-align: center;
+}
+main .carousel .titleFilmPopulaire.active {
+  opacity: 1;
+}
+main .carousel .next, main .carousel .previous {
+  color: #FFFFFF;
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+main .carousel .next {
+  right: 1rem;
+}
+main .carousel .previous {
+  left: 1rem;
+}
+
 body {
   background-color: #1B1B1B;
 }

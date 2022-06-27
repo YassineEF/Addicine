@@ -1,3 +1,19 @@
+ <?php
+    include_once "./app/models/Film.class.php";
+    // $curl = curl_init("https://api.themoviedb.org/3/movie/popular?api_key=3143998f7db739235e5db0025401606a&language=fr");
+
+    // curl_setopt_array($curl,[
+    //     CURLOPT_SSL_VERIFYPEER => false,
+    //     CURLOPT_RETURNTRANSFER => true,
+    //     CURLOPT_TIMEOUT => 1
+    // ]);
+    // $data = curl_exec($curl);
+    // if($data === false){
+    //     var_dump(curl_error($curl));
+    // }else{
+    //     $data = json_decode($data, true);
+    
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,8 +39,8 @@
         </div>
         <div class="center">
             <ul>
-                <li><a href="#">Film</a></li>
-                <li><a href="#">Séries</a></li>
+                <li>Film</li>
+                <li>Séries</li>
             </ul>
         </div>
         <div class="right">
@@ -33,10 +49,39 @@
                 <i class="fa fa-search"></i>
             </form>
         </div>
-        </header>
-        <div class="line"> </div>
-        <main>
-
+    </header>
+    <div class="line"> </div>
+    <main>
+        <article>"Movies can be an art<br>Let yourself be carried away"</article>
+        <div class="carousel">
+            <?php
+                $filmPop = new Film("https://api.themoviedb.org/3/movie/popular?api_key=3143998f7db739235e5db0025401606a&language=fr");
+                $filmPop->setOption();
+                $filmPop->getData();
+                foreach($filmPop->data['results'] as $key => $film){
+                    if($key === 0 ){
+                        echo '<img src="https://image.tmdb.org/t/p/w500'.$film['backdrop_path'] .'" alt="'.$film['title'].'" class="slider active">';
+                        echo '<p class="titleFilmPopulaire active">'. $film['title'].'</p>';
+                    }else{
+                        echo '<img src="https://image.tmdb.org/t/p/w500'.$film['backdrop_path'] .'" alt="'.$film['title'].'" class="slider ">';
+                        echo '<p class="titleFilmPopulaire">'. $film['title'].'</p>';
+                    }
+                }
+            ?>
+            <div class="next">
+                <i class="fas fa-chevron-circle-right"></i>
+            </div>
+            <div class="previous">
+                <i class="fas fa-chevron-circle-left"></i>
+            </div>
+        </div>
     </main>
+
+    <script src="./public/assets/js/app.js"></script>
 </body>
 </html>
+<?php
+
+    // }
+    // curl_close($curl);
+    ?>

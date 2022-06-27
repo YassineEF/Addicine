@@ -22,7 +22,10 @@
             }else{
                 $this->data = json_decode($this->data, true);
             }
+        }
+        public function closeCurl(){
             curl_close($this->curl);
+            
         }
 
 

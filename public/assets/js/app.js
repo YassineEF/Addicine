@@ -38,4 +38,4 @@ previous.addEventListener('click', () =>{
 })
 
 
-// setInterval(function(){ NextImage(); },3000)
+setInterval(function(){ NextImage(); },3000)

@@ -25,12 +25,13 @@
 <body>
     <header>
         <div class="left">
-            <img src="../../public/assets/img/Logo.png" alt="Logo Addicine">
+        <a href="#"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
         </div>
         <div class="center">
             <ul>
                 <li>Film</li>
                 <li>Séries</li>
+                <li>Genres</li>
             </ul>
         </div>
         <div class="right">
@@ -69,7 +70,7 @@
                 <?php
                 foreach($filmPop->checkData() as $key => $film){
                     echo '<figure>';
-                        echo '<a href="#"><img src="https://image.tmdb.org/t/p/w500'.$film['poster_path'] .'" alt="'.$film['title'].'" class="posterPopularFilm">';
+                        echo '<a href="./singleFilm?id='.$film['id'].'"><img src="https://image.tmdb.org/t/p/w500'.$film['poster_path'] .'" alt="'.$film['title'].'" class="posterPopularFilm">';
                         echo '<figcaption>'. $film['title'].'</figcaption></a>';
                     echo '</figure>';
                  }
@@ -77,19 +78,22 @@
                 </div>
                 
             </div>
-            <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non laoreet erat, vitae vulputate massa. Pellentesque id lobortis nibh. Sed aliquet id ipsum vel volutpat. In semper et mauris non laoreet. Donec tristique, nibh ut molestie lobortis, massa lorem egestas sapien, vitae bibendum libero tellus vitae lectus. Morbi sed lobortis urna. Duis non eleifend nunc.
-
-Cras vulputate, purus in ultricies rhoncus, metus elit scelerisque enim, vitae pulvinar turpis ligula ut orci. Donec metus tortor, elementum nec arcu id, euismod interdum nibh. Praesent dolor diam, imperdiet id tempus eu, faucibus eget eros. Cras a mauris nec lacus consequat feugiat a a ante. Nulla non libero ut mauris rutrum semper id a odio. Nulla vel ullamcorper lorem. Aliquam erat ligula, egestas ac luctus quis, posuere ac ipsum. Mauris eget ultricies quam, placerat viverra massa. Nullam sem elit, laoreet nec ornare ac, maximus at ante. Proin vitae dictum augue. Fusce dignissim, urna eu cursus viverra, nulla justo dictum odio, a euismod tellus quam quis urna. Quisque nec diam vel arcu pretium placerat. Nulla facilisi. Donec convallis ut diam sed rutrum.
-
-Quisque eget lorem fermentum, bibendum urna sed, euismod elit. Quisque sem nunc, tristique quis convallis quis, tempus in urna. Sed libero lacus, dictum interdum rhoncus at, molestie a sem. Vivamus faucibus a enim eget volutpat. Nam aliquet eu sem eu vestibulum. In auctor imperdiet est non blandit. Nunc nec quam sit amet odio fermentum cursus. Duis interdum tempor risus malesuada ullamcorper. Nulla nisi velit, eleifend et auctor at, malesuada vel risus. Curabitur laoreet purus id erat pulvinar vulputate. Integer sit amet pretium tellus.
-
-Ut venenatis dui sit amet mi euismod, vitae porttitor metus tempus. Cras a pulvinar dui. Integer congue felis arcu. Sed vel ipsum libero. Vestibulum in fringilla enim, in pellentesque erat. Proin euismod orci vitae nisl facilisis, eget finibus augue congue. Sed nec aliquam quam, in convallis lacus.
-
-Maecenas eget erat in diam porttitor facilisis. Integer accumsan sapien sed ex finibus porta. Nullam facilisis interdum nisl vitae euismod. Maecenas sed nisi elit. Morbi vehicula, ante luctus ornare porttitor, lorem lectus imperdiet felis, et porttitor est justo id neque. Etiam efficitur mi augue, eget sagittis erat tempor eget. Nunc vel blandit nisi. Etiam a fermentum enim. Praesent efficitur quam sit amet sodales blandit. Fusce a magna non eros fringilla finibus. In scelerisque nunc dolor. Aliquam erat volutpat. Sed efficitur semper velit ut posuere.
-
-Generated 5 paragraphs, 391 words, 2533 bytes of Lorem Ipsum
+            <div class="filmPopular">
+                <h2>Popular Series</h2>
+                <div class="sliderFilmPopulaire">
+                <?php
+                $SeriePop = new SerieContr(); 
+                foreach($SeriePop->checkData() as $key => $serie){
+                    echo '<figure>';
+                        echo '<a href="#"><img src="https://image.tmdb.org/t/p/w500'.$serie['poster_path'] .'" alt="'.$serie['name'].'" class="posterPopularFilm">';
+                        echo '<figcaption>'. $serie['name'].'</figcaption></a>';
+                    echo '</figure>';
+                 }
+                ?>    
+                </div>
+                
             </div>
+           
     </main>
 
     <script src="../../public/assets/js/app.js"></script>

@@ -32,17 +32,17 @@ main .carousel .slider.active {
 }
 main .carousel .titleFilmPopulaire {
   position: absolute;
-  top: 100%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%);
   padding: 5px 10px;
   color: #FFFFFF;
+  text-shadow: #1394DA 2px -5px;
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: 700;
   opacity: 0;
-  border-radius: 0 55px;
   text-align: center;
 }
 main .carousel .titleFilmPopulaire.active {
@@ -65,7 +65,7 @@ main .carousel .previous {
 main .filmPopular {
   width: 100%;
   text-align: center;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 main .filmPopular h2 {
   color: #FFFFFF;
@@ -93,7 +93,7 @@ main .filmPopular .sliderFilmPopulaire figcaption {
 }
 
 body {
-  background-color: #1B1B1B;
+  background-color: #FFFFFF;
 }
 
 header {

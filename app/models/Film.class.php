@@ -24,8 +24,7 @@
             }
         }
         public function closeCurl(){
-            curl_close($this->curl);
-            
+            curl_close($this->curl); 
         }
 
 

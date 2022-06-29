@@ -42,7 +42,7 @@
         </div>
     </header>
     <div class="line"> </div>
-    <main>
+    <main class="home">
         <article>"Movies can be an art<br>Let yourself be carried away"</article>
         <div class="carousel">
             <?php
@@ -81,11 +81,11 @@
             <div class="filmPopular">
                 <h2>Popular Series</h2>
                 <div class="sliderFilmPopulaire">
-                <?php
+                    <?php
                 $SeriePop = new SerieContr(); 
                 foreach($SeriePop->checkData() as $key => $serie){
                     echo '<figure>';
-                        echo '<a href="#"><img src="https://image.tmdb.org/t/p/w500'.$serie['poster_path'] .'" alt="'.$serie['name'].'" class="posterPopularFilm">';
+                        echo '<a href="./SingleSerie?id='.$serie['id'].'"><img src="https://image.tmdb.org/t/p/w500'.$serie['poster_path'] .'" alt="'.$serie['name'].'" class="posterPopularFilm">';
                         echo '<figcaption>'. $serie['name'].'</figcaption></a>';
                     echo '</figure>';
                  }

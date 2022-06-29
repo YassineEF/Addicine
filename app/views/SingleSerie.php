@@ -8,21 +8,21 @@ if (isset($_GET['id'])) {
 include '../includes/autoloader.inc.php';
 
 //function to convert minutes in a format where we have hours and minute
-function convertToHoursMins($time)
-{
-    if ($time < 1) {
-        return;
-    }
-    $hours = floor($time / 60);
-    $minutes = ($time % 60);
-    return   $hours . " hours " . $minutes . " minutes";
-}
-function convertDate($dateAmerican)
-{
-    $timestamp = strtotime($dateAmerican);
-    $dateFrench = date("d-m-Y", $timestamp);
-    return $dateFrench;
-}
+// function convertToHoursMins($time)
+// {
+//     if ($time < 1) {
+//         return;
+//     }
+//     $hours = floor($time / 60);
+//     $minutes = ($time % 60);
+//     return   $hours . " hours " . $minutes . " minutes";
+// }
+// function convertDate($dateAmerican)
+// {
+//     $timestamp = strtotime($dateAmerican);
+//     $dateFrench = date("d-m-Y", $timestamp);
+//     return $dateFrench;
+// }
 //Env variable
 (new DotEnv(__DIR__ . '/.env'))->load();
 ?>
@@ -61,13 +61,12 @@ function convertDate($dateAmerican)
     </header>
     <main class="singleMovie">
         <?php
-        $SingleFilm = new SingleFilmContr($id);
-        $Single = $SingleFilm->checkData();
-        $video = $SingleFilm->getVideos();
-        $actors = $SingleFilm->getActor();
+            $SingleSerie = new SingleSerieContr($id);
+            $Single = $SingleSerie->checkData();
+            var_dump($Single);
         ?>
         <div class="singleFilmUp">
-            <h1 class="singleFilmTitle"><?= $Single['title']; ?></h1>
+            <h1 class="singleFilmTitle"><?= $Single['name']; ?></h1>
             <p class="singleFilmStatus">(<?= $Single['status']; ?>)
             <p>
         </div>
@@ -76,7 +75,7 @@ function convertDate($dateAmerican)
             <div class="singleFilmPosterResume">
                 <div class="singleFilmLeft">
                     <?php
-                    echo '<img src="https://image.tmdb.org/t/p/w500' . $Single['poster_path'] . '" alt="' . $Single['title'] . '" >';
+                    echo '<img src="https://image.tmdb.org/t/p/w500' . $Single['poster_path'] . '" alt="' . $Single['name'] . '" >';
                     ?>
                 </div>
                 <div class="singleFilmCenterDown">
@@ -97,6 +96,17 @@ function convertDate($dateAmerican)
                         } else {
                             echo '<img src="https://image.tmdb.org/t/p/w45' . $production_companie['logo_path'] . '" alt="Logo ' . $production_companie['name'] . '" >';
                         }
+                    }
+                    ?>
+                    <h2>Created By:</h2>
+                    <?php
+                    foreach ($Single['created_by'] as  $creator) {
+                        echo '<p>-' . $creator['name'] . '</p>';
+                        // if ($production_companie['logo_path'] == null) {
+                        //     echo '<img src="../../public/assets/img/NoLogoCompany.png" alt="Logo ' . $production_companie['name'] . '" >';
+                        // } else {
+                        //     echo '<img src="https://image.tmdb.org/t/p/w45' . $production_companie['logo_path'] . '" alt="Logo ' . $production_companie['name'] . '" >';
+                        // }
                     }
                     ?>
                 </div>
@@ -153,5 +163,5 @@ function convertDate($dateAmerican)
 
 </html>
 <?php
-$SingleFilm->close();
+$SingleSerie->close();
 ?>

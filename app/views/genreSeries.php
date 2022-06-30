@@ -67,13 +67,13 @@ include '../includes/autoloader.inc.php';
         <h2 class="FilmCategoryTitle"><?= $genre ?></h2>
         <div class="FilmCategory">
             <?php
-            $genreMovie= new genreMovieContr($id);
-            $allFilmGenre = $genreMovie->checkData();
-            foreach ($allFilmGenre as $filmParGenre) {
+            $genreSerie = new genreSerieContr($id);
+            $allSerieGenre = $genreSerie->checkData();
+            foreach ($allSerieGenre as $serieParGenre) {
                 // var_dump($oneTvCat);
                 echo '<figure>';
-                echo '<a href="./singleFilm?id='.$filmParGenre['id'].'"><img src="https://image.tmdb.org/t/p/w342' . $filmParGenre['poster_path'] . '"alt="' . $filmParGenre['title'] . '" class="">';
-                echo '<figcaption>' . $filmParGenre['title'] . '</figcaption></a>';
+                echo '<a href="./singleSerie?id=' . $serieParGenre['id'] . '"><img src="https://image.tmdb.org/t/p/w342' . $serieParGenre['poster_path'] . '"alt="' . $serieParGenre['name'] . '" class="">';
+                echo '<figcaption>' . $serieParGenre['name'] . '</figcaption></a>';
                 echo '</figure>';
             }
             ?>
@@ -86,6 +86,6 @@ include '../includes/autoloader.inc.php';
 
 </html>
 <?php
-$genreMovie->close();
+$genreSerie->close();
 
 ?>

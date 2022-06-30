@@ -54,7 +54,7 @@
                             $filmPop = new FilmContr();
                             $movieGenres = $filmPop->getGenres();
                             foreach ($movieGenres as $movieGenre) {
-                                echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '">' . $movieGenre['name'] . '</a>';
+                                echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '&genre='. $movieGenre['name'] .'">' . $movieGenre['name'] . '</a>';
                             }
                             ?>
                      </div>
@@ -65,7 +65,7 @@
                          <?php
                             $tvGenres = $filmPop->getGenresTv();
                             foreach ($tvGenres as $tvGenre) {
-                                echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '">' . $tvGenre['name'] . '</a>';
+                                echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '&genre='. $movieGenre['name'] .'">' . $tvGenre['name'] . '</a>';
                             }
                             ?>
                      </div>

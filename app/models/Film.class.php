@@ -10,7 +10,8 @@
         }
         public function setOption(){
             curl_setopt_array($this->curl,[
-                CURLOPT_CAINFO => __DIR__ . DIRECTORY_SEPARATOR . 'cert.cer',
+                CURLOPT_SSL_VERIFYPEER => false,
+                // CURLOPT_CAINFO => __DIR__ . DIRECTORY_SEPARATOR . 'cert.cer',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_TIMEOUT => 1
             ]);

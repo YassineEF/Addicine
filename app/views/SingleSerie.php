@@ -1,12 +1,14 @@
 <?php
 
+//include all the classes
+include '../includes/autoloader.inc.php';
 //save the get from other page
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
-//include all the classes
-include '../includes/autoloader.inc.php';
 
+//Env variable
+(new DotEnv(__DIR__ . '/.env'))->load();
 //function to convert minutes in a format where we have hours and minute
 function convertToHoursMins($time)
 {
@@ -23,9 +25,16 @@ function convertDate($dateAmerican)
     $dateFrench = date("d-m-Y", $timestamp);
     return $dateFrench;
 }
-//Env variable
-(new DotEnv(__DIR__ . '/.env'))->load();
-?>
+$SingleSerie = new SingleSerieContr($id);
+$Single = $SingleSerie->checkData();
+if(sizeof($Single) <= 3){
+    echo '404';
+}else{
+    
+    
+    $video = $SingleSerie->getVideos();
+    $actors = $SingleSerie->getActor();
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,10 +70,7 @@ function convertDate($dateAmerican)
     </header>
     <main class="singleMovie">
         <?php
-        $SingleSerie = new SingleSerieContr($id);
-        $Single = $SingleSerie->checkData();
-        $video = $SingleSerie->getVideos();
-        $actors = $SingleSerie->getActor();
+        
 
         ?>
         <div class="singleFilmUp">
@@ -183,4 +189,5 @@ function convertDate($dateAmerican)
 </html>
 <?php
 $SingleSerie->close();
+                }
 ?>

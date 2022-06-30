@@ -267,6 +267,39 @@
   text-decoration: none;
 }
 
+.FilmCategoryTitle {
+  color: #1394DA;
+  font-family: "Space Grotesk", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.FilmCategory {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 10px auto;
+  place-items: center;
+}
+.FilmCategory figure {
+  height: 70%;
+  text-align: center;
+}
+.FilmCategory figure a {
+  color: inherit;
+  text-decoration: none;
+}
+.FilmCategory figure img {
+  border: 5px solid #FFFFFF;
+  border-radius: 20px;
+  height: 100%;
+}
+.FilmCategory figure figcaption {
+  text-align: center;
+  color: #FFFFFF;
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+}
+
 body {
   background-color: #1B1B1B;
 }
@@ -302,6 +335,8 @@ header .dropdownMenu {
 header .dropdownMenu .dropdown-content {
   display: none;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #FFFFFF;
   border-radius: 20px;
   min-width: 160px;

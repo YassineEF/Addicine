@@ -1,20 +1,21 @@
 <?php
 
-    class SerieContr extends Film{
-
+    class CategoryTvContr extends Film{
         protected $request;
+        protected $category;
 
-
-        public function __construct(){
-            $this->request = new Film("https://api.themoviedb.org/3/tv/popular?api_key=".getenv('API_KEY')."&language=en");
+        public function __construct($category)
+        {
+            $this->category = $category;
+            $this->request = new Film("https://api.themoviedb.org/3/tv/".$this->category."?api_key=".getenv('API_KEY')."&language=en");
         }
         public function checkData(){
             $this->request->setOption();
             $this->request->getData();
             return $this->request->data['results'];
         }
+        
         public function close(){
             $this->request->closeCurl();
         }
-
     }

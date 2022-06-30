@@ -44,11 +44,11 @@ include '../includes/autoloader.inc.php';
                     </div>
                 </div>
                 <div class="dropdownMenu">
-                    <li>Séries</li>
+                    <li>Tv series</li>
                     <div class="dropdown-content">
-                        <a href="#">Top Rated</a>
-                        <a href="#">Latest</a>
-                        <a href="#">Latest</a>
+                        <a href="./categoryTv?category=top_rated">Top Rated</a>
+                        <a href="./categoryTv?category=popular">Popular</a>
+                        <a href="./categoryTv?category=on_the_air">On the air</a>
                     </div>
                 </div>
                 <li>Genres</li>
@@ -63,15 +63,16 @@ include '../includes/autoloader.inc.php';
     </header>
     <div class="line"> </div>
     <main>
-        <h2 class="FilmCategoryTitle"><?= $category == 'top_rated' ? 'top rated' : $category ?></h2>
+        <h2 class="FilmCategoryTitle"><?= $category == 'on_the_air' ? 'On the air' : $category ?></h2>
         <div class="FilmCategory">
             <?php
-            $filmCategory = new CategoryFilmContr($category);
-            $allFilmCat = $filmCategory->checkData();
-            foreach ($allFilmCat as $oneFilmCat) {
+            $tvCategory = new CategoryTvContr($category);
+            $allTvCat = $tvCategory->checkData();
+            foreach ($allTvCat as $oneTvCat) {
+                // var_dump($oneTvCat);
                 echo '<figure>';
-                echo '<a href="./singleFilm?id='.$oneFilmCat['id'].'"><img src="https://image.tmdb.org/t/p/w342' . $oneFilmCat['poster_path'] . '"alt="' . $oneFilmCat['title'] . '" class="">';
-                echo '<figcaption>' . $oneFilmCat['title'] . '</figcaption></a>';
+                echo '<a href="./singleSerie?id='.$oneTvCat['id'].'"><img src="https://image.tmdb.org/t/p/w342' . $oneTvCat['poster_path'] . '"alt="' . $oneTvCat['name'] . '" class="">';
+                echo '<figcaption>' . $oneTvCat['name'] . '</figcaption></a>';
                 echo '</figure>';
             }
             ?>
@@ -84,6 +85,6 @@ include '../includes/autoloader.inc.php';
 
 </html>
 <?php
-$filmCategory->close();
+$tvCategory->close();
 
 ?>

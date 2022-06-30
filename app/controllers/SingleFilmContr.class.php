@@ -10,9 +10,9 @@
 
         public function __construct($id){
             $this->id = $id;
-            $this->request = new Film("https://api.themoviedb.org/3/movie/".$this->id."?api_key=".getenv('API_KEY')."&language=fr");
-            $this->video = new Film("https://api.themoviedb.org/3/movie/".$this->id."/videos?api_key=".getenv('API_KEY')."&language=fr");
-            $this->actor = new Film("https://api.themoviedb.org/3/movie/".$this->id."/credits?api_key=".getenv('API_KEY')."&language=fr");
+            $this->request = new Film("https://api.themoviedb.org/3/movie/".$this->id."?api_key=".getenv('API_KEY')."&language=en");
+            $this->video = new Film("https://api.themoviedb.org/3/movie/".$this->id."/videos?api_key=".getenv('API_KEY')."&language=en");
+            $this->actor = new Film("https://api.themoviedb.org/3/movie/".$this->id."/credits?api_key=".getenv('API_KEY')."&language=en");
         }
         public function checkData(){
             $this->request->setOption();

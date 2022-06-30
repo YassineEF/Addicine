@@ -8,8 +8,8 @@
         public function __construct($id)
         {
             $this->id = $id;
-            $this->request = new Film("https://api.themoviedb.org/3/person/".$this->id."?api_key=".getenv('API_KEY')."&language=fr");
-            $this->movies = new Film("https://api.themoviedb.org/3/person/".$this->id."/combined_credits?api_key=".getenv('API_KEY')."&language=fr");
+            $this->request = new Film("https://api.themoviedb.org/3/person/".$this->id."?api_key=".getenv('API_KEY')."&language=en");
+            $this->movies = new Film("https://api.themoviedb.org/3/person/".$this->id."/combined_credits?api_key=".getenv('API_KEY')."&language=en");
         }
         public function checkData(){
             $this->request->setOption();

@@ -115,7 +115,7 @@ function convertDate($dateAmerican)
                 ?>
             </div>
             <div class="singleActorMovie">
-                <h3>Series</h3>
+                <h3>Tv Series</h3>
                 <?php
                 foreach ($moviesActor as $movie) {
                     if ($movie['media_type'] == 'tv') {

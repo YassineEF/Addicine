@@ -32,24 +32,44 @@
          <div class="center">
              <ul>
                  <div class="dropdownMenu">
-                     <li>Film</li>
+                     <li>Movie</li>
                      <div class="dropdown-content">
-                         <a href="./categoryFilm?category=latest">Latest</a>
                          <a href="./categoryFilm?category=top_rated">Top Rated</a>
                          <a href="./categoryFilm?category=popular">Popular</a>
                          <a href="./categoryFilm?category=upcoming">Upcoming</a>
                      </div>
                  </div>
                  <div class="dropdownMenu">
-                     <li>Séries</li>
+                     <li>Tv series</li>
                      <div class="dropdown-content">
-                         <a href="#">Latest</a>
-                         <a href="#">Top Rated</a>
-                         <a href="#">Latest</a>
-                         <a href="#">Latest</a>
+                         <a href="./categoryTv?category=top_rated">Top Rated</a>
+                         <a href="./categoryTv?category=popular">Popular</a>
+                         <a href="./categoryTv?category=on_the_air">On the air</a>
                      </div>
                  </div>
-                 <li>Genres</li>
+                 <div class="dropdownMenu">
+                     <li>Movie Genres</li>
+                     <div class="dropdown-content">
+                         <?php
+                            $filmPop = new FilmContr();
+                            $movieGenres = $filmPop->getGenres();
+                            foreach ($movieGenres as $movieGenre) {
+                                echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '">' . $movieGenre['name'] . '</a>';
+                            }
+                            ?>
+                     </div>
+                 </div>
+                 <div class="dropdownMenu">
+                     <li>Tv series Genres</li>
+                     <div class="dropdown-content">
+                         <?php
+                            $tvGenres = $filmPop->getGenresTv();
+                            foreach ($tvGenres as $tvGenre) {
+                                echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '">' . $tvGenre['name'] . '</a>';
+                            }
+                            ?>
+                     </div>
+                 </div>
              </ul>
          </div>
          <div class="right">
@@ -64,7 +84,6 @@
          <article>"Movies can be an art<br>Let yourself be carried away"</article>
          <div class="carousel">
              <?php
-                $filmPop = new FilmContr();
                 foreach ($filmPop->checkData() as $key => $film) {
                     if ($key === 0) {
                         echo '<img src="https://image.tmdb.org/t/p/w500' . $film['backdrop_path'] . '" alt="' . $film['title'] . '" class="slider active">';
@@ -83,7 +102,7 @@
              </div>
          </div>
          <div class="filmPopular">
-             <h2>Popular Film</h2>
+             <h2>Popular Movie</h2>
              <div class="sliderFilmPopulaire">
                  <?php
                     foreach ($filmPop->checkData() as $key => $film) {
@@ -120,5 +139,4 @@
  </html>
  <?php
     $filmPop->close();
-
     ?>

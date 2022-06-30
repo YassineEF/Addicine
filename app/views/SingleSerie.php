@@ -154,7 +154,7 @@ function convertDate($dateAmerican)
                 </div>
             </div>
             <div class="singleFilmDown">
-                <h3 class='FilmActorTitle'>Actor</h3>
+                <h3 class='FilmActorTitle'>Cast</h3>
                 <div class="actorsSingleFilm">
                     <?php
                     if (sizeof($actors) == 0) {

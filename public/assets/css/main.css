@@ -148,7 +148,7 @@
 }
 .singleMovie .singleFilmMid .info .singleFilmCenter h2 {
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  margin: 30px 0 10px;
   color: #1394DA;
 }
 .singleMovie .singleFilmMid .info .singleFilmRight {
@@ -159,6 +159,11 @@
 .singleMovie .singleFilmMid .info .singleFilmRight .miniTitle {
   color: #1394DA;
   font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.singleMovie .singleFilmMid .NotAvailable {
+  font-family: "Space Grotesk", sans-serif;
+  color: #1394DA;
   text-transform: uppercase;
 }
 .singleMovie .singleFilmDown {
@@ -188,6 +193,79 @@
 .singleMovie .singleFilmDown .actorsSingleFilm h4 .namePlaceholder {
   color: #1394DA;
 }
+.singleMovie .singleFilmDown .actorsSingleFilm a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.singleActor .singleActorUp {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: "Space Grotesk", sans-serif;
+  margin: 20px 0;
+}
+.singleActor .singleActorUp .singleActorTitle {
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+.singleActor .singleActorCenter {
+  margin: 40px;
+  display: flex;
+  padding: 20px;
+  place-items: center;
+  background-color: rgba(255, 255, 255, 0.137);
+  border-radius: 50px;
+}
+.singleActor .singleActorCenter .singleActorPhoto {
+  height: 40vh;
+  align-items: center;
+}
+.singleActor .singleActorCenter .singleActorPhoto img {
+  height: 100%;
+  border-radius: 30px 0;
+}
+.singleActor .singleActorCenter .singleActorinfo {
+  color: #FFFFFF;
+  font-family: "Space Grotesk", sans-serif;
+  margin: auto 30px;
+}
+.singleActor .singleActorCenter .singleActorinfo .miniTitle {
+  color: #1394DA;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.singleActor .singleActorCenter .NotAvailable {
+  font-family: "Space Grotesk", sans-serif;
+  color: #1394DA;
+  text-transform: uppercase;
+}
+.singleActor .singleActorDown {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.singleActor .singleActorDown .singleActorMovie {
+  margin: 0 20px 20px;
+}
+.singleActor .singleActorDown .singleActorMovie h3 {
+  color: #1394DA;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.singleActor .singleActorDown .singleActorMovie p {
+  color: #FFFFFF;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+.singleActor .singleActorDown .singleActorMovie a {
+  color: inherit;
+  text-decoration: none;
+}
 
 body {
   background-color: #1B1B1B;
@@ -216,6 +294,34 @@ header .center ul li {
 header .center ul li a {
   text-decoration: none;
   color: inherit;
+}
+header .dropdownMenu {
+  position: relative;
+  display: inline-block;
+}
+header .dropdownMenu .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+header .dropdownMenu .dropdown-content a {
+  font-family: "Space Grotesk", sans-serif;
+  color: #1B1B1B;
+  padding: 12px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+}
+header .dropdownMenu .dropdown-content a:hover {
+  background-color: #1B1B1B;
+  color: #FFFFFF;
+}
+header .dropdownMenu:hover .dropdown-content {
+  display: block;
 }
 header .right .searchBar {
   position: relative;

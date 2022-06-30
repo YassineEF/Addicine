@@ -1,0 +1,75 @@
+.singleActor{
+    .singleActorUp{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-family: $font;
+        margin: 20px 0;
+        .singleActorTitle{
+            color: $secondary-color;
+            text-transform: uppercase;
+        }
+    }
+    .singleActorCenter{
+        margin: 40px;
+        display: flex;
+        padding: 20px;
+        // justify-content: center
+        place-items: center;
+        // border: 2px solid white;
+        background-color: rgba(255, 255, 255, 0.137);
+        border-radius: 50px;
+        // justify-content: space-between;
+        .singleActorPhoto{
+            height: 40vh;
+            align-items: center;
+            img{
+                height: 100%;
+                // border: 5px solid $secondary-color ;
+                border-radius: 30px 0;
+            }
+        }
+        .singleActorinfo{
+            color: $secondary-color;
+            font-family: $font;
+            margin: auto 30px;
+            //   border: 2px solid white;
+            .miniTitle{
+                color: $third-color;
+                font-size: 1.2rem;
+                text-transform: uppercase;
+            }
+        }
+             .NotAvailable{
+                font-family: $font;
+                color: $third-color;
+                text-transform: uppercase;
+            }
+    }
+    .singleActorDown{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        .singleActorMovie{
+            margin: 0 20px 20px;
+            h3{
+                color: $third-color;
+                font-family: $font;
+                font-size: 1.2rem;
+                text-transform: uppercase;
+            }
+            p{
+                color: $secondary-color;
+                font-family: $font;
+                font-size: 1rem;
+                text-transform: uppercase;
+                margin-top: 10px;
+            }
+            a{
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+    }
+}

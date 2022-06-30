@@ -76,13 +76,21 @@ function convertDate($dateAmerican)
             <div class="singleFilmPosterResume">
                 <div class="singleFilmLeft">
                     <?php
-                    echo '<img src="https://image.tmdb.org/t/p/w500' . $Single['poster_path'] . '" alt="' . $Single['title'] . '" >';
+                    if($Single['poster_path'] == null){
+                        echo '<img src="../../public/assets/img/ProfilePicNA.png" alt="Film: ' . $Single['title'] . '" >';
+                        
+                    }else{
+                        echo '<img src="https://image.tmdb.org/t/p/w500' . $Single['poster_path'] . '" alt="' . $Single['title'] . '" >';
+                    }
                     ?>
                 </div>
                 <div class="singleFilmCenterDown">
                     <?php
-                    // echo '<img src="https://image.tmdb.org/t/p/w780'.$Single['backdrop_path'] .'" alt="'.$Single['title'].'" class="singleFilmCenterDownImg">';
-                    echo '<p class="singleFilmCenterDownParag" >' . $Single['overview'] . '</p>';
+                    if($Single['overview'] == ""){
+                        echo '<p class="singleFilmCenterDownParag" >Resume not available</p>';
+                    }else{
+                        echo '<p class="singleFilmCenterDownParag" >' . $Single['overview'] . '</p>';
+                    }
                     ?>
                 </div>
             </div>
@@ -90,14 +98,19 @@ function convertDate($dateAmerican)
                 <div class="singleFilmCenter">
                     <h2>Production Companies:</h2>
                     <?php
-                    foreach ($Single['production_companies'] as  $production_companie) {
+                    if(sizeof($Single['production_companies'] ) == 0){
+                        echo '<p class="miniTitle">Information not available</p>';
+                    }else{
+                       foreach ($Single['production_companies'] as  $production_companie) {
                         echo '<p>-' . $production_companie['name'] . '</p>';
                         if ($production_companie['logo_path'] == null) {
                             echo '<img src="../../public/assets/img/NoLogoCompany.png" alt="Logo ' . $production_companie['name'] . '" >';
                         } else {
                             echo '<img src="https://image.tmdb.org/t/p/w45' . $production_companie['logo_path'] . '" alt="Logo ' . $production_companie['name'] . '" >';
                         }
+                    } 
                     }
+                    
                     ?>
                 </div>
                 <div class="singleFilmRight">
@@ -123,7 +136,11 @@ function convertDate($dateAmerican)
                 </div>
                 <div class='Trailer'>
                     <?php
-                    echo  '<iframe width="520" height="345"  src=" https://www.youtube.com/embed/' . $video[0]['key'] . '"></iframe>';
+                     if(sizeof($video)== 0){
+                        echo '<p class="NotAvailable">Video not available</p>';
+                    }else{    
+                        echo  '<iframe width="520" height="345"  src=" https://www.youtube.com/embed/' . $video[0]['key'] . '"></iframe>';
+                    }
                     ?>
                 </div>
             </div>
@@ -135,12 +152,12 @@ function convertDate($dateAmerican)
                     foreach($actors as $actor){
                         echo '<article class = " singleFilmActor"> ';
                         if($actor['profile_path'] == null){
-                            echo '<img src="../../public/assets/img/ProfilePicNA.png" alt="Actor: ' . $actor['name'] . '" >';
+                            echo '<a href="./singleActor?id='.$actor['id'].'"><img src="../../public/assets/img/ProfilePicNA.png" alt="Actor: ' . $actor['name'] . '" >';
                         }else{
-                            echo '<img src="https://image.tmdb.org/t/p/w185' . $actor['profile_path'] . '" alt="Actor: ' . $actor['name'] . '" >';
+                            echo '<a href="./singleActor?id='.$actor['id'].'"><img src="https://image.tmdb.org/t/p/w185' . $actor['profile_path'] . '" alt="Actor: ' . $actor['name'] . '" >';
                         }
                         echo '<h4><span class="namePlaceholder">Name</span>:  '.$actor['name'].'</h4>';    
-                        echo '<h4><span class="namePlaceholder">Character</span>:  '.$actor['character'].'</h4>';    
+                        echo '<h4><span class="namePlaceholder">Character</span>:  '.$actor['character'].'</h4></a>';    
                         echo '</article>';
                     }
                     ?>

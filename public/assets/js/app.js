@@ -1,13 +1,18 @@
+//div image and div title
 let imgSlider = document.getElementsByClassName('slider');
 let titleSlider = document.getElementsByClassName('titleFilmPopulaire');
 
 let actualImg = 0;
-
+//number of image
 let imgNumber = imgSlider.length;
-
+//button next & previous
 let previous = document.querySelector('.previous');
 let next = document.querySelector('.next');
-
+//
+let searchForm = document.getElementById('searchForm');
+let searchButton = document.getElementById('searchLogo');
+// let searchInput = document.getElementById('keyWord').value;
+// slider in home page wher usqer click on the prevoious or nest button
 function notActive(){
     for(let i =0; i < imgNumber; i++){
         imgSlider[i].classList.remove('active');
@@ -37,5 +42,8 @@ previous.addEventListener('click', () =>{
     titleSlider[actualImg].classList.add('active');
 })
 
+// slider automatic after 3 seconds
+setInterval(function(){ NextImage(); },3000);
 
-setInterval(function(){ NextImage(); },3000)
+//send form onclick of the searchlogo
+searchButton.addEventListener('click', () => {searchForm.submit();})

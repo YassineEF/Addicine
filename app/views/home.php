@@ -65,7 +65,7 @@
                          <?php
                             $tvGenres = $filmPop->getGenresTv();
                             foreach ($tvGenres as $tvGenre) {
-                                echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '&genre='. $movieGenre['name'] .'">' . $tvGenre['name'] . '</a>';
+                                echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '&genre='. $tvGenre['name'] .'">' . $tvGenre['name'] . '</a>';
                             }
                             ?>
                      </div>
@@ -73,9 +73,9 @@
              </ul>
          </div>
          <div class="right">
-             <form action="find.php" method="get" class="searchBar">
-                 <input type="text" class="search" required>
-                 <i class="fa fa-search"></i>
+             <form action="./find.php" method="get" class="searchBar" id="searchForm">
+                 <input type="text" class="search" name="keyWord" id="keyWord" required>
+                 <i class="fa fa-search" id="searchLogo"></i>
              </form>
          </div>
      </header>

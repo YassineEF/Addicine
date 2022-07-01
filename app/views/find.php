@@ -1,7 +1,11 @@
 <?php
 //save the get from other page
-if (isset($_GET['category'])) {
-    $category = $_GET['category'];
+if (isset($_GET['keyWord'])) {
+    $keyWord = $_GET['keyWord'];
+    if(empty($keyWord)){
+        header("Location: ./home.php", true, 301);
+        exit();
+    }
 }
 include '../includes/autoloader.inc.php';
 
@@ -63,18 +67,36 @@ include '../includes/autoloader.inc.php';
     </header>
     <div class="line"> </div>
     <main>
-
-        <h2 class="FilmCategoryTitle"><?= str_replace("_", " ",$category) ?></h2>
+        <h2 class="FilmCategoryTitle">Search Result</h2>
         <div class="FilmCategory">
             <?php
-            $tvCategory = new CategoryTvContr($category);
-            $allTvCat = $tvCategory->checkData();
-            foreach ($allTvCat as $oneTvCat) {
-                // var_dump($oneTvCat);
-                echo '<figure>';
-                echo '<a href="./singleSerie?id='.$oneTvCat['id'].'"><img src="https://image.tmdb.org/t/p/w342' . $oneTvCat['poster_path'] . '"alt="' . $oneTvCat['name'] . '" class="">';
-                echo '<figcaption>' . $oneTvCat['name'] . '</figcaption></a>';
-                echo '</figure>';
+            $searchData= new searchContr(urlencode($keyWord));
+            $searchResults = $searchData->checkData();
+            foreach ($searchResults as $searchResult) {
+                switch($searchResult['media_type']){
+                    case 'movie' :
+                        echo '<figure>';
+                        echo '<a href="./singleFilm?id='.$searchResult['id'].'"><img src="https://image.tmdb.org/t/p/w185' . $searchResult['poster_path'] . '"alt="' . $searchResult['title'] . '">';
+                        echo '<figcaption>' . $searchResult['title'] . '</figcaption></a>';
+                        echo '</figure>';
+                        break;
+                    case 'tv' :
+                        echo '<figure>';
+                        echo '<a href="./singleSerie?id='.$searchResult['id'].'"><img src="https://image.tmdb.org/t/p/w185' . $searchResult['poster_path'] . '"alt="' . $searchResult['name'] . '">';
+                        echo '<figcaption>' . $searchResult['name'] . '</figcaption></a>';
+                        echo '</figure>';
+                        break;
+                    case 'person' :
+                        echo '<figure>';
+                        if ($searchResult['profile_path'] == null) {
+                            echo '<a href="./singleActor?id='.$searchResult['id'].'"><img src="../../public/assets/img/ProfilePicNA.png" alt="' . $searchResult['name'] . '">';
+                        }else{
+                            echo '<a href="./singleActor?id='.$searchResult['id'].'"><img src="https://image.tmdb.org/t/p/w185' . $searchResult['profile_path'] . '"alt="' . $searchResult['name'] . '">';
+                        }
+                        echo '<figcaption>' . $searchResult['name'] . '</figcaption></a>';
+                        echo '</figure>';
+                        break;
+                }
             }
             ?>
         </div>
@@ -86,6 +108,6 @@ include '../includes/autoloader.inc.php';
 
 </html>
 <?php
-$tvCategory->close();
+$searchData->close();
 
 ?>

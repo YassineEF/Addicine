@@ -14,7 +14,7 @@
             return false;
         }
 
-        include $fullPath;
+        require $fullPath;
 
     }
     function MyAutoLoaderContr($className){
@@ -27,6 +27,6 @@
             return false;
         }
 
-        include $fullPath;
+        require $fullPath;
 
     }

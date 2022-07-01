@@ -76,13 +76,22 @@ include '../includes/autoloader.inc.php';
                 switch($searchResult['media_type']){
                     case 'movie' :
                         echo '<figure>';
-                        echo '<a href="./singleFilm?id='.$searchResult['id'].'"><img src="https://image.tmdb.org/t/p/w185' . $searchResult['poster_path'] . '"alt="' . $searchResult['title'] . '">';
+                        if($searchResult['poster_path']== null){
+                            echo '<a href="./singleFilm?id='.$searchResult['id'].'"><img src="../../public/assets/img/ProfilePicNA.png" alt="' . $searchResult['title'] . '">';
+                        }else{
+                            echo '<a href="./singleFilm?id='.$searchResult['id'].'"><img src="https://image.tmdb.org/t/p/w185' . $searchResult['poster_path'] . '"alt="' . $searchResult['title'] . '">';
+                        }
                         echo '<figcaption>' . $searchResult['title'] . '</figcaption></a>';
                         echo '</figure>';
                         break;
                     case 'tv' :
                         echo '<figure>';
-                        echo '<a href="./singleSerie?id='.$searchResult['id'].'"><img src="https://image.tmdb.org/t/p/w185' . $searchResult['poster_path'] . '"alt="' . $searchResult['name'] . '">';
+                        if($searchResult['poster_path'] == null){
+                            echo '<a href="./singleFilm?id='.$searchResult['id'].'"><img src="../../public/assets/img/ProfilePicNA.png" alt="' . $searchResult['name'] . '">';
+
+                        }else{
+                            echo '<a href="./singleSerie?id='.$searchResult['id'].'"><img src="https://image.tmdb.org/t/p/w185' . $searchResult['poster_path'] . '"alt="' . $searchResult['name'] . '">';
+                        }
                         echo '<figcaption>' . $searchResult['name'] . '</figcaption></a>';
                         echo '</figure>';
                         break;

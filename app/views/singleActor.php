@@ -104,12 +104,19 @@ function convertDate($dateAmerican)
                 <h3>Movie</h3>
                 <?php
                 foreach ($moviesActor as $movie) {
-                    if ($movie['media_type'] == 'movie') {
-                        if ($movie['release_date'] == '') {
+                    if ($movie['media_type'] == 'movie' ) {
+                        // var_dump($movie['id']);
+                        if(!array_key_exists('release_date', $movie)){
                             echo "<p><a href='./singleFilm?id=".$movie['id']."'>Release date not available:  " . $movie['title'] . "  (" . $movie['character'] . ")</a></p>";
-                        } else {
-                            echo "<p><a href='./singleFilm?id=".$movie['id']."'>" . convertDate($movie['release_date']) . ":  " . $movie['title'] . "  (" . $movie['character'] . ")</a></p>";
+
+                        }else{
+                            if ($movie['release_date'] == '') {
+                                echo "<p><a href='./singleFilm?id=".$movie['id']."'>Release date not available:  " . $movie['title'] . "  (" . $movie['character'] . ")</a></p>";
+                            } else {
+                                echo "<p><a href='./singleFilm?id=".$movie['id']."'>" . convertDate($movie['release_date']) . ":  " . $movie['title'] . "  (" . $movie['character'] . ")</a></p>";
+                            }
                         }
+                        
                     }
                 }
                 ?>

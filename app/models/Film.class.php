@@ -19,7 +19,7 @@
         public function getData(){
             $this->data = curl_exec($this->curl);
             if($this->data == false){
-                var_dump(curl_error($this->curl));
+                curl_error($this->curl);
             }else{
                 $this->data = json_decode($this->data, true);
             }

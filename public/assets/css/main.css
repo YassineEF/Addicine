@@ -74,22 +74,28 @@
 }
 .home .filmPopular .sliderFilmPopulaire {
   margin-top: 5%;
-  display: flex;
-  overflow-x: scroll;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   width: 100%;
-  height: 400px;
+}
+.home .filmPopular .sliderFilmPopulaire a {
+  text-decoration: none;
+  color: inherit;
 }
 .home .filmPopular .sliderFilmPopulaire figure {
   height: 300px;
-  margin: 0 5%;
+  margin: 10% 5%;
 }
 .home .filmPopular .sliderFilmPopulaire figure .posterPopularFilm {
   height: 100%;
+  border: 5px solid #FFFFFF;
+  border-radius: 20px;
 }
 .home .filmPopular .sliderFilmPopulaire figcaption {
   color: #FFFFFF;
   font-family: "Space Grotesk", sans-serif;
   text-transform: uppercase;
+  font-size: 1rem;
 }
 
 .singleMovie .singleFilmUp {
@@ -304,35 +310,36 @@ body {
   background-color: #1B1B1B;
 }
 
-header {
+header .headerUp {
   display: flex;
   justify-content: space-between;
   margin: 2% 2%;
 }
-header .center {
+header .headerUp .center {
   text-align: center;
   margin-top: 5px;
 }
-header .center ul {
+header .headerUp .center ul {
   display: flex;
   justify-content: space-between;
 }
-header .center ul li {
+header .headerUp .center ul li {
   list-style: none;
   margin: 10px 40px;
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.5rem;
   color: #FFFFFF;
+  cursor: context-menu;
 }
-header .center ul li a {
+header .headerUp .center ul li a {
   text-decoration: none;
   color: inherit;
 }
-header .dropdownMenu {
+header .headerUp .dropdownMenu {
   position: relative;
   display: inline-block;
 }
-header .dropdownMenu .dropdown-content {
+header .headerUp .dropdownMenu .dropdown-content {
   display: none;
   position: absolute;
   left: 50%;
@@ -343,7 +350,7 @@ header .dropdownMenu .dropdown-content {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
-header .dropdownMenu .dropdown-content a {
+header .headerUp .dropdownMenu .dropdown-content a {
   font-family: "Space Grotesk", sans-serif;
   color: #1B1B1B;
   padding: 12px 16px;
@@ -351,14 +358,14 @@ header .dropdownMenu .dropdown-content a {
   text-transform: uppercase;
   display: block;
 }
-header .dropdownMenu .dropdown-content a:hover {
+header .headerUp .dropdownMenu .dropdown-content a:hover {
   background-color: #1B1B1B;
   color: #FFFFFF;
 }
-header .dropdownMenu:hover .dropdown-content {
+header .headerUp .dropdownMenu:hover .dropdown-content {
   display: block;
 }
-header .right .searchBar {
+header .headerUp .right .searchBar {
   position: relative;
   top: 50%;
   left: 50%;
@@ -372,7 +379,7 @@ header .right .searchBar {
   border: 4px solid white;
   padding: 5px;
 }
-header .right .searchBar .search {
+header .headerUp .right .searchBar .search {
   position: absolute;
   top: 0;
   left: 0;
@@ -386,7 +393,7 @@ header .right .searchBar .search {
   border-radius: 20px;
   padding: 0 20px;
 }
-header .right .searchBar .fa {
+header .headerUp .right .searchBar .fa {
   box-sizing: border-box;
   padding: 10px;
   width: 42.5px;
@@ -400,18 +407,44 @@ header .right .searchBar .fa {
   font-size: 1.2em;
   transition: all 1s;
 }
-header .right .searchBar:hover,
-header .right .searchBar:valid {
+header .headerUp .right .searchBar:hover,
+header .headerUp .right .searchBar:valid {
   cursor: pointer;
 }
-header .right .searchBar:hover .search,
-header .right .searchBar:valid .search {
+header .headerUp .right .searchBar:hover .search,
+header .headerUp .right .searchBar:valid .search {
   display: block;
 }
-header .right .searchBar .fa:hover,
-header .right .searchBar .fa:valid {
+header .headerUp .right .searchBar .fa:hover,
+header .headerUp .right .searchBar .fa:valid {
   background: #1394DA;
   color: white;
+}
+header .headerDown {
+  margin: 0 auto;
+  text-align: center;
+}
+header .headerDown .listGenre {
+  margin: 5px auto 10px;
+}
+header .headerDown .listGenre h4 {
+  color: #1394DA;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+header .headerDown .listGenre-content a {
+  text-decoration: none;
+  margin-left: 2px;
+  color: #FFFFFF;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+  border-radius: 20px 0;
+  padding: 2px;
+}
+header .headerDown .listGenre-content a:hover {
+  color: #1394DA;
+  background-color: #FFFFFF;
 }
 
 .line {

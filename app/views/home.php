@@ -26,57 +26,63 @@
 
  <body>
      <header>
-         <div class="left">
-             <a href="#"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
+         <div class="headerUp">
+
+             <div class="left">
+                 <a href="#"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
+             </div>
+             <div class="center">
+                 <ul>
+                     <div class="dropdownMenu">
+                         <li>Movie</li>
+                         <div class="dropdown-content">
+                             <a href="./categoryFilm?category=top_rated">Top Rated</a>
+                             <a href="./categoryFilm?category=popular">Popular</a>
+                             <a href="./categoryFilm?category=upcoming">Upcoming</a>
+                         </div>
+                     </div>
+                     <div class="dropdownMenu">
+                         <li>Tv series</li>
+                         <div class="dropdown-content">
+                             <a href="./categoryTv?category=top_rated">Top Rated</a>
+                             <a href="./categoryTv?category=popular">Popular</a>
+                             <a href="./categoryTv?category=on_the_air">On the air</a>
+                         </div>
+                     </div>
+
+                 </ul>
+             </div>
+             <div class="right">
+                 <form action="./find.php" method="get" class="searchBar" id="searchForm">
+                     <input type="text" class="search" name="keyWord" id="keyWord" required>
+                     <i class="fa fa-search" id="searchLogo"></i>
+                 </form>
+             </div>
          </div>
-         <div class="center">
-             <ul>
-                 <div class="dropdownMenu">
-                     <li>Movie</li>
-                     <div class="dropdown-content">
-                         <a href="./categoryFilm?category=top_rated">Top Rated</a>
-                         <a href="./categoryFilm?category=popular">Popular</a>
-                         <a href="./categoryFilm?category=upcoming">Upcoming</a>
-                     </div>
+         <div class="headerDown">
+             <div class="listGenre">
+                 <h4>Movie Genres</h4>
+                 <div class="listGenre-content">
+                     <?php
+                        $filmPop = new FilmContr();
+                        $movieGenres = $filmPop->getGenres();
+                        foreach ($movieGenres as $movieGenre) {
+                            echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '&genre=' . $movieGenre['name'] . '">' . $movieGenre['name'] . '</a>';
+                        }
+                        ?>
                  </div>
-                 <div class="dropdownMenu">
-                     <li>Tv series</li>
-                     <div class="dropdown-content">
-                         <a href="./categoryTv?category=top_rated">Top Rated</a>
-                         <a href="./categoryTv?category=popular">Popular</a>
-                         <a href="./categoryTv?category=on_the_air">On the air</a>
-                     </div>
+             </div>
+             <div class="listGenre">
+                 <h4>Tv series Genres</h4>
+                 <div class="listGenre-content">
+                     <?php
+                        $tvGenres = $filmPop->getGenresTv();
+                        foreach ($tvGenres as $tvGenre) {
+                            echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '&genre=' . $tvGenre['name'] . '">' . $tvGenre['name'] . '</a>';
+                        }
+                        ?>
                  </div>
-                 <div class="dropdownMenu">
-                     <li>Movie Genres</li>
-                     <div class="dropdown-content">
-                         <?php
-                            $filmPop = new FilmContr();
-                            $movieGenres = $filmPop->getGenres();
-                            foreach ($movieGenres as $movieGenre) {
-                                echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '&genre='. $movieGenre['name'] .'">' . $movieGenre['name'] . '</a>';
-                            }
-                            ?>
-                     </div>
-                 </div>
-                 <div class="dropdownMenu">
-                     <li>Tv series Genres</li>
-                     <div class="dropdown-content">
-                         <?php
-                            $tvGenres = $filmPop->getGenresTv();
-                            foreach ($tvGenres as $tvGenre) {
-                                echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '&genre='. $tvGenre['name'] .'">' . $tvGenre['name'] . '</a>';
-                            }
-                            ?>
-                     </div>
-                 </div>
-             </ul>
-         </div>
-         <div class="right">
-             <form action="./find.php" method="get" class="searchBar" id="searchForm">
-                 <input type="text" class="search" name="keyWord" id="keyWord" required>
-                 <i class="fa fa-search" id="searchLogo"></i>
-             </form>
+             </div>
          </div>
      </header>
      <div class="line"> </div>

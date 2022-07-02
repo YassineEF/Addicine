@@ -72,6 +72,11 @@ include '../includes/autoloader.inc.php';
             <?php
             $searchData= new searchContr(urlencode($keyWord));
             $searchResults = $searchData->checkData();
+            if(sizeof($searchResults) == 0){
+                echo '<h2 class="FilmCategoryTitle">No results available</h2>';
+            }else{
+
+            
             foreach ($searchResults as $searchResult) {
                 switch($searchResult['media_type']){
                     case 'movie' :
@@ -118,5 +123,5 @@ include '../includes/autoloader.inc.php';
 </html>
 <?php
 $searchData->close();
-
+        }
 ?>

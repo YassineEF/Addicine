@@ -3,6 +3,12 @@
 if (isset($_GET['category'])) {
     $category = $_GET['category'];
 }
+if(!isset($_GET['page'])){
+
+    $page = 1;
+}else{
+    $page = $_GET['page'] + 1;
+}
 include '../includes/autoloader.inc.php';
 
 //Env variable
@@ -66,7 +72,7 @@ include '../includes/autoloader.inc.php';
         <h2 class="FilmCategoryTitle"><?= $category == 'top_rated' ? 'top rated' : $category ?></h2>
         <div class="FilmCategory">
             <?php
-            $filmCategory = new CategoryFilmContr($category);
+            $filmCategory = new CategoryFilmContr($category,$page);
             $allFilmCat = $filmCategory->checkData();
             foreach ($allFilmCat as $oneFilmCat) {
                 echo '<figure>';
@@ -76,7 +82,9 @@ include '../includes/autoloader.inc.php';
             }
             ?>
         </div>
-
+        <!-- <a href="./categoryFilm?category=top_rated&page=">Previous</a> -->
+        
+        <?= '<a href="./categoryFilm?category=top_rated&page='. $page .'">Next</a>' ?>
     </main>
 
     <script src="../../public/assets/js/app.js"></script>

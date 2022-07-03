@@ -16,6 +16,9 @@
             $this->request->getData();
             return $this->request->data['results'];
         }
+        public function getTotalPages(){
+            return $this->request->data['total_pages'];
+        }
         
         public function close(){
             $this->request->closeCurl();

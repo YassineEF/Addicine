@@ -3,11 +3,13 @@
 if (isset($_GET['category'])) {
     $category = $_GET['category'];
 }
-if(!isset($_GET['page'])){
+if (!isset($_GET['page'])) {
 
     $page = 1;
-}else{
-    $page = $_GET['page'] + 1;
+    $pagePrevious = 1;
+} else {
+    $page = $_GET['page'];
+    $pagePrevious = $_GET['page'];
 }
 include '../includes/autoloader.inc.php';
 
@@ -72,19 +74,34 @@ include '../includes/autoloader.inc.php';
         <h2 class="FilmCategoryTitle"><?= $category == 'top_rated' ? 'top rated' : $category ?></h2>
         <div class="FilmCategory">
             <?php
-            $filmCategory = new CategoryFilmContr($category,$page);
+            $filmCategory = new CategoryFilmContr($category, $page);
             $allFilmCat = $filmCategory->checkData();
             foreach ($allFilmCat as $oneFilmCat) {
                 echo '<figure>';
-                echo '<a href="./singleFilm?id='.$oneFilmCat['id'].'"><img src="https://image.tmdb.org/t/p/w342' . $oneFilmCat['poster_path'] . '"alt="' . $oneFilmCat['title'] . '" class="">';
+                echo '<a href="./singleFilm?id=' . $oneFilmCat['id'] . '"><img src="https://image.tmdb.org/t/p/w342' . $oneFilmCat['poster_path'] . '"alt="' . $oneFilmCat['title'] . '" class="">';
                 echo '<figcaption>' . $oneFilmCat['title'] . '</figcaption></a>';
                 echo '</figure>';
             }
             ?>
         </div>
-        <!-- <a href="./categoryFilm?category=top_rated&page=">Previous</a> -->
-        
-        <?= '<a href="./categoryFilm?category=top_rated&page='. $page .'">Next</a>' ?>
+
+        <div class="buttonsPages">
+            <?php
+            if ($pagePrevious <= 1) {
+                echo '<a href="#">This is the first page</a>';
+            } else {
+                $pagePrevious -=  1;
+                echo '<a href="./categoryFilm?category=' . $category . '&page=' . $pagePrevious . '">Previous</a>';
+            }
+            if ($page == 500) {
+                echo '<a href="#">This is the last page</a>';
+            } else {
+                $page +=  1;
+                echo '<a href="./categoryFilm?category=' . $category . '&page=' . $page . '">Next</a>';
+            }
+
+            ?>
+        </div>
     </main>
 
     <script src="../../public/assets/js/app.js"></script>

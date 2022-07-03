@@ -7,3 +7,6 @@ $font:'Space Grotesk', sans-serif;
     padding: 0;
     box-sizing: border-box;
 }
+@mixin transition-ease{
+    transition: all 0.5s ease-in-out;
+}

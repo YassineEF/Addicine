@@ -31,33 +31,40 @@
              <div class="left">
                  <a href="#"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
              </div>
-             <div class="center">
-                 <ul>
-                     <div class="dropdownMenu">
-                         <li>Movie</li>
-                         <div class="dropdown-content">
-                             <a href="./categoryFilm?category=top_rated">Top Rated</a>
-                             <a href="./categoryFilm?category=popular">Popular</a>
-                             <a href="./categoryFilm?category=upcoming">Upcoming</a>
+             <div class="menu-btn">
+                 <span class="menu-btn_burger"></span>
+             </div>
+             <nav class="navbar">
+                 <div class="center">
+                     <ul class="menu-nav">
+                         <div class="dropdownMenu">
+                             <li>Movie</li>
+                             <div class="dropdown-content">
+                                 <a href="./categoryFilm?category=top_ratedwith dropdown menu
+                             ">Top Rated</a>
+                                 <a href="./categoryFilm?category=popular">Popular</a>
+                                 <a href="./categoryFilm?category=upcoming">Upcoming</a>
+                             </div>
                          </div>
-                     </div>
-                     <div class="dropdownMenu">
-                         <li>Tv series</li>
-                         <div class="dropdown-content">
-                             <a href="./categoryTv?category=top_rated">Top Rated</a>
-                             <a href="./categoryTv?category=popular">Popular</a>
-                             <a href="./categoryTv?category=on_the_air">On the air</a>
+                         <div class="dropdownMenu">
+                             <li>Tv series</li>
+                             <div class="dropdown-content">
+                                 <a href="./categoryTv?category=top_rated">Top Rated</a>
+                                 <a href="./categoryTv?category=popular">Popular</a>
+                                 <a href="./categoryTv?category=on_the_air">On the air</a>
+                             </div>
                          </div>
-                     </div>
 
-                 </ul>
-             </div>
-             <div class="right">
-                 <form action="./find.php" method="get" class="searchBar" id="searchForm">
-                     <input type="text" class="search" name="keyWord" id="keyWord" required>
-                     <i class="fa fa-search" id="searchLogo"></i>
-                 </form>
-             </div>
+                     </ul>
+                 </div>
+
+                 <div class="right">
+                     <form action="./find.php" method="get" class="searchBar" id="searchForm">
+                         <input type="text" class="search" name="keyWord" id="keyWord" required>
+                         <i class="fa fa-search" id="searchLogo"></i>
+                     </form>
+                 </div>
+             </nav>
          </div>
          <div class="headerDown">
              <div class="listGenre">

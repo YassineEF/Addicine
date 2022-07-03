@@ -1,5 +1,6 @@
 @import 'config';
 @import 'home';
+@import 'menu';
 @import 'singleFilm';
 @import 'singleActor';
 @import 'filmCategory';
@@ -11,11 +12,16 @@ body{
  
 }
 header{
+    position: relative;
+    z-index: 2;
     .headerUp{
         display: flex;
         justify-content: space-between;
         margin: 2% 2%;
-        .center{
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            .center{
             text-align: center;
             margin-top: 5px;
             ul{
@@ -128,6 +134,8 @@ header{
             color: white;
         }  
         }
+        }
+        
     }
     .headerDown{
         margin: 0 auto;
@@ -141,13 +149,16 @@ header{
                 text-transform: uppercase;
             }
             &-content{
+                margin: 10px 0;
                 a{
                     text-decoration: none;
+                    text-transform: uppercase;
                     margin-left: 2px;
                     color: $secondary-color;
                     font-family: $font;
                     font-size: 1rem;
-                    border-radius: 20px 0;
+                    border-radius: 5px;
+                    background-color: $third-color;
                     padding: 2px;
                     &:hover{
                         color: $third-color;

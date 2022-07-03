@@ -1,0 +1,31 @@
+@media screen and (max-width: 800px){
+    .menu-btn{
+        visibility: visible;
+    }
+    .navbar{
+        visibility: hidden;
+    }
+
+    .open{
+        visibility: visible;
+        display: block!important;
+        height: 100%;
+        width: 100%;
+        z-index:40;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: $primary-color;
+
+
+    }
+    // header{
+    //     .headerUp{
+    
+    //     .navbar {
+
+    //     }
+    // }
+// }
+}

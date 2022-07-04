@@ -29,3 +29,18 @@
         }
     }
 }
+.buttonsPages{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5% 3%;
+    a{
+        text-decoration: none;
+        text-transform: uppercase;
+        background-color: $secondary-color;
+        color: $third-color;
+        font-family: $font;
+        font-weight: 600;
+        padding: 5px;
+        border-radius: 20px;
+    }
+}

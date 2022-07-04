@@ -3,6 +3,14 @@
 if (isset($_GET['category'])) {
     $category = $_GET['category'];
 }
+if (!isset($_GET['page'])) {
+
+    $page = 1;
+    $pagePrevious = 1;
+} else {
+    $page = $_GET['page'];
+    $pagePrevious = $_GET['page'];
+}
 include '../includes/autoloader.inc.php';
 
 //Env variable
@@ -132,18 +140,49 @@ include '../includes/autoloader.inc.php';
         <h2 class="FilmCategoryTitle"><?= str_replace("_", " ",$category) ?></h2>
         <div class="FilmCategory">
             <?php
-            $tvCategory = new CategoryTvContr($category);
+            $tvCategory = new CategoryTvContr($category, $page);
             $allTvCat = $tvCategory->checkData();
             foreach ($allTvCat as $oneTvCat) {
                 // var_dump($oneTvCat);
                 echo '<figure>';
-                echo '<a href="./singleSerie?id='.$oneTvCat['id'].'"><img src="https://image.tmdb.org/t/p/w342' . $oneTvCat['poster_path'] . '"alt="' . $oneTvCat['name'] . '" class="">';
+                if($oneTvCat['poster_path'] == null){
+                    echo '<a href="./singleSerie?id='.$oneTvCat['id'].'"><img src="../../public/assets/img/ProfilePicNA.png" alt="' . $oneTvCat['name'] . '" class="">';
+                }else{
+                    echo '<a href="./singleSerie?id='.$oneTvCat['id'].'"><img src="https://image.tmdb.org/t/p/w342' . $oneTvCat['poster_path'] . '"alt="' . $oneTvCat['name'] . '" class="">';
+                }
                 echo '<figcaption>' . $oneTvCat['name'] . '</figcaption></a>';
                 echo '</figure>';
             }
             ?>
         </div>
+        <div class="buttonsPages">
+            <?php
+            if ($pagePrevious <= 1) {
+                echo '<a href="#">No previous pages</a>';
+            } else {
+                $pagePrevious -=  1;
+                echo '<a href="./categoryTv?category=' . $category . '&page=' . $pagePrevious . '" > <i class="fas fa-chevron-circle-left"></i> Previous</a>';
+            }
+            if($category == 'on_the_air'){
+                if ($page == 42) {
+                    echo '<a href="#" >No more pages</a>';
+                } else {
+                    $page +=  1;
+                    echo '<a href="./categoryTv?category=' . $category . '&page=' . $page . '" >Next <i class="fas fa-chevron-circle-right"></i></a>';
+                }
+            }else{
+               if ($page == 500) {
+                echo '<a href="#" >No more pages</a>';
+            } else {
+                $page +=  1;
+                echo '<a href="./categoryTv?category=' . $category . '&page=' . $page . '" >Next <i class="fas fa-chevron-circle-right"></i></a>';
 
+            } 
+            }
+            
+
+            ?>
+        </div>
     </main>
 
     <script src="../../public/assets/js/app.js"></script>

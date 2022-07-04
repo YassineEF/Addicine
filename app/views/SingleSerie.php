@@ -28,7 +28,7 @@ function convertDate($dateAmerican)
 $SingleSerie = new SingleSerieContr($id);
 $Single = $SingleSerie->checkData();
 if(sizeof($Single) <= 3){
-    echo '404';
+    header("Location: ./404.php", true, 301);
 }else{
     
     

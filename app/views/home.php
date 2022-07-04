@@ -178,6 +178,7 @@
      </main>
 
      <script src="../../public/assets/js/app.js"></script>
+     <script src="../../public/assets/js/slider.js"></script>
  </body>
 
  </html>

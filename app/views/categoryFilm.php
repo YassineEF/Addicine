@@ -143,7 +143,11 @@ include '../includes/autoloader.inc.php';
             $allFilmCat = $filmCategory->checkData();
             foreach ($allFilmCat as $oneFilmCat) {
                 echo '<figure>';
-                echo '<a href="./singleFilm?id=' . $oneFilmCat['id'] . '"><img src="https://image.tmdb.org/t/p/w342' . $oneFilmCat['poster_path'] . '"alt="' . $oneFilmCat['title'] . '" class="">';
+                if($oneFilmCat['poster_path']==null){
+                    echo '<a href="./singleFilm?id=' . $oneFilmCat['id'] . '"><img src="../../public/assets/img/ProfilePicNA.png" alt="' . $oneFilmCat['title'] . '" class="">';
+                }else{
+                    echo '<a href="./singleFilm?id=' . $oneFilmCat['id'] . '"><img src="https://image.tmdb.org/t/p/w342' . $oneFilmCat['poster_path'] . '"alt="' . $oneFilmCat['title'] . '" class="">';
+                }
                 echo '<figcaption>' . $oneFilmCat['title'] . '</figcaption></a>';
                 echo '</figure>';
             }
@@ -153,17 +157,28 @@ include '../includes/autoloader.inc.php';
         <div class="buttonsPages">
             <?php
             if ($pagePrevious <= 1) {
-                echo '<a href="#">This is the first page</a>';
+                echo '<a href="#">No previous pages</a>';
             } else {
                 $pagePrevious -=  1;
-                echo '<a href="./categoryFilm?category=' . $category . '&page=' . $pagePrevious . '">Previous</a>';
+                echo '<a href="./categoryFilm?category=' . $category . '&page=' . $pagePrevious . '" > <i class="fas fa-chevron-circle-left"></i> Previous</a>';
             }
-            if ($page == 500) {
-                echo '<a href="#">This is the last page</a>';
+            if($category == 'upcoming'){
+                if ($page == 20) {
+                    echo '<a href="#" >No more pages</a>';
+                } else {
+                    $page +=  1;
+                    echo '<a href="./categoryFilm?category=' . $category . '&page=' . $page . '" >Next <i class="fas fa-chevron-circle-right"></i></a>';
+                }
+            }else{
+               if ($page == 500) {
+                echo '<a href="#" >No more pages</a>';
             } else {
                 $page +=  1;
-                echo '<a href="./categoryFilm?category=' . $category . '&page=' . $page . '">Next</a>';
+                echo '<a href="./categoryFilm?category=' . $category . '&page=' . $page . '" >Next <i class="fas fa-chevron-circle-right"></i></a>';
+
+            } 
             }
+            
 
             ?>
         </div>

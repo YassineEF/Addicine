@@ -39,7 +39,7 @@ include '../includes/autoloader.inc.php';
              <div class="left">
                  <a href="./home.php"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
              </div>
-             <form action="./find.php" method="get" class="searchBar" id="searchForm">
+             <form action="find.php" method="get" class="searchBar" id="searchForm">
                  <input type="text" class="search" name="keyWord" id="keyWord" required>
                  <i class="fa fa-search" id="searchLogo"></i>
              </form>

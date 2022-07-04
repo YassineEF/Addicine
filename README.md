@@ -2,7 +2,8 @@
 # Work with API
 I built this project to learn the MVC pattern, to learn how to communicate with a API and to use what i learn about OOP.
 This project was a exercise given us from our tutor and the instruction was clear, create a site that have a very simple design but that have a MVC pattern and some API calls.
-To build this project i used CURL to download data and wich can communicate with an API, iused CURL caus i want to privilage PHP over Javcascript and that's why i don't used Axios/ajax/fetch.
+# Why i used cURL
+To build this project i used CURL to download data and wich can communicate with an API, i used CURL cause i want to privilage PHP over Javcascript and that's why i don't used Axios/ajax/fetch.
 In my Controllers i have all the data i get from curling from the API.
 In my Model i have my class to initiate curl and return trhe data?.
 In my views i have all my templates to show what i returned in my controllers.

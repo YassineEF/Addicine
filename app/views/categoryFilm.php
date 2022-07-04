@@ -1,4 +1,8 @@
 <?php
+include '../includes/autoloader.inc.php';
+
+//Env variable
+(new DotEnv(__DIR__ . '/.env'))->load();
 //save the get from other page
 if (isset($_GET['category'])) {
     $category = $_GET['category'];
@@ -11,10 +15,6 @@ if (!isset($_GET['page'])) {
     $page = $_GET['page'];
     $pagePrevious = $_GET['page'];
 }
-include '../includes/autoloader.inc.php';
-
-//Env variable
-(new DotEnv(__DIR__ . '/.env'))->load();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,44 +69,6 @@ include '../includes/autoloader.inc.php';
              <div class="menu-btn">
                  <span class="menu-btn_burger"></span>
              </div>
-             <!-- <label for="check" class="bar">
-                 <span class="fa fa-bars" id="bars"></span>
-                 <span class="fa fa-times" id="times"></span>
-             </label> -->
-             <!-- <div class="menu-btn">
-                 <span class="menu-btn_burger"></span>
-             </div> -->
-             <!-- <nav class="navbar">
-                 <div class="center">
-                     <ul class="menu-nav">
-                         <div class="dropdownMenu">
-                             <li>Movie</li>
-                             <div class="dropdown-content">
-                                 <a href="./categoryFilm?category=top_ratedwith dropdown menu
-                             ">Top Rated</a>
-                                 <a href="./categoryFilm?category=popular">Popular</a>
-                                 <a href="./categoryFilm?category=upcoming">Upcoming</a>
-                             </div>
-                         </div>
-                         <div class="dropdownMenu">
-                             <li>Tv series</li>
-                             <div class="dropdown-content">
-                                 <a href="./categoryTv?category=top_rated">Top Rated</a>
-                                 <a href="./categoryTv?category=popular">Popular</a>
-                                 <a href="./categoryTv?category=on_the_air">On the air</a>
-                             </div>
-                         </div>
-
-                     </ul>
-                 </div>
-
-                 <div class="right">
-                     <form action="./find.php" method="get" class="searchBar" id="searchForm">
-                         <input type="text" class="search" name="keyWord" id="keyWord" required>
-                         <i class="fa fa-search" id="searchLogo"></i>
-                     </form>
-                 </div>
-             </nav> -->
          </div>
          <div class="headerDown">
              <div class="listGenre">
@@ -142,6 +104,7 @@ include '../includes/autoloader.inc.php';
             $filmCategory = new CategoryFilmContr($category, $page);
             $allFilmCat = $filmCategory->checkData();
             foreach ($allFilmCat as $oneFilmCat) {
+                // var_dump($allFilmCat);
                 echo '<figure>';
                 if($oneFilmCat['poster_path']==null){
                     echo '<a href="./singleFilm?id=' . $oneFilmCat['id'] . '"><img src="../../public/assets/img/ProfilePicNA.png" alt="' . $oneFilmCat['title'] . '" class="">';
@@ -150,6 +113,8 @@ include '../includes/autoloader.inc.php';
                 }
                 echo '<figcaption>' . $oneFilmCat['title'] . '</figcaption></a>';
                 echo '</figure>';
+                // echo '<a href="./singleFilm?id=' . $oneFilmCat['id'] . '"><img src="https://image.tmdb.org/t/p/w342' . $oneFilmCat['poster_path'] . '"alt="' . $oneFilmCat['title'] . '" class="">';
+                
             }
             ?>
         </div>

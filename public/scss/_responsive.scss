@@ -1,31 +1,73 @@
-@media screen and (max-width: 800px){
-    .menu-btn{
-        visibility: visible;
-    }
-    .navbar{
-        visibility: hidden;
-    }
+@media screen and (max-width: 900px){
+        .headerUp{
+            display: block;
+            padding: 0;
+            .searchBar{
+                width: 100%;
+                display: inline-flex;
+                justify-content: center;
+                margin-bottom: 15px;
+                input{
+                   width: 90%; 
+                }
+            }
+            ul{
+                display: none;
+                flex-direction: column;
+                li{
+                    text-align: center;
+                    font-size: 28px;
+                    padding: 25px;
+                    display: block;
+                }
+                &.open{
+                    display: flex;
+                }
+            }
+            .menu-btn{
+                visibility: visible;
+            }
+            // .bar{
+            //     display: block;
+            //     position: absolute;
+            //     top:15px;
+            //     right: 80px;
+            //     cursor: pointer;
+            //     #times{
+            //         display: none;
 
-    .open{
-        visibility: visible;
-        display: block!important;
-        height: 100%;
-        width: 100%;
-        z-index:40;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%);
-        background-color: $primary-color;
+            //     }
+            //     #bars{
+            //         display: none;
+            //     }
+            // }
+        }
+        
+        // #check:checked ~ .headerUp .bar #times{
+        //     display: block;
+        // }
+        // #check:checked ~ .headerUp .bar #bars{
+        //     display: none;
+        // }
+//     .menu-btn{
+//         visibility: visible;
+//     }
+//     .navbar{
+//         visibility: hidden;
+//     }
+
+//     .open{
+//         visibility: visible;
+//         display: block!important;
+//         height: 100%;
+//         width: 100%;
+//         z-index:40;
+//         position: absolute;
+//         top: 0;
+//         left: 50%;
+//         transform: translateX(-50%);
+//         background-color: $primary-color;
 
 
-    }
-    // header{
-    //     .headerUp{
-    
-    //     .navbar {
-
-    //     }
-    // }
-// }
+//     }
 }

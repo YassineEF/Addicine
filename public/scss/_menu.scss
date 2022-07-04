@@ -1,11 +1,102 @@
+.headerUp{
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: space-between;
+    text-align: center;
+    padding: 15px 30px;
+
+    ul{
+        display: flex;
+        list-style: none;
+        margin: auto 50px;
+        li{
+            margin: 0 2px;
+            color: $secondary-color;
+            font-family: $font;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 10px;
+            // &:hover{
+            //     background: $secondary-color;
+            //     color: $third-color;
+
+            // }
+        }
+    }
+    .searchBar{
+        display: flex;
+        margin: auto 0;
+        height: 35px;
+        line-height: 35px;
+        input{
+           border: none;
+           outline: none;
+           background: $secondary-color;
+           height: 100%;
+           padding: 0 10px;
+           font-size:20px;
+           font-family: $font;
+           width: 350px;
+           border-radius: 55px 0 0 55px;
+        }
+
+        i{
+            color: $primary-color;
+            font-size: 20px;
+            background: $secondary-color;
+            height: 100%;
+            padding: 8px;
+            position: relative;
+            cursor: pointer;
+            z-index: 1;
+            &::after{
+                height: 100%;
+                width: 0%;
+                content: '';
+                background: $third-color;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: -1;
+                transition: 0.3s;
+            }
+            &:hover::after{
+                width: 100%;
+            }
+            &:hover{
+                color: $secondary-color;
+            }
+        }
+        
+
+    }
+    // .bar{
+    //     position: relative;
+    //     margin: auto;
+    //     display: none;
+    //     span{
+    //         position: absolute;
+    //         color: $secondary-color;
+    //         font-size: 25px;
+    //     }
+    // }
+}  
+
+// input[type="checkbox"]{
+//     -webkit-appearance: none;
+//     display: none;
+// }
+
+
 .menu-btn{
+    visibility: hidden;
     position: absolute;
     z-index: 1;
     right: 1rem;
     top: 1rem;
     height: 20px;
     width: 28px;
-    visibility: hidden;
     cursor: pointer;
     @include transition-ease;
 
@@ -13,7 +104,7 @@
     &_burger{
         position: absolute;
         right: 0;
-        top: 0.5rem;
+        top: 1.5rem;
         width: 28px;
         height: 3px;
         background: $secondary-color;
@@ -23,6 +114,7 @@
             content: '';
             position: absolute;
             top: -8px;
+            left: 0;
             width: 28px;
             height: 3px;
             background: $secondary-color;
@@ -33,6 +125,7 @@
             content: '';
             position: absolute;
             top: 8px;
+            left: 0;
             width: 20px;
             height: 3px;
             background: $secondary-color;

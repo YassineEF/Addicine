@@ -59,31 +59,20 @@ include '../includes/autoloader.inc.php';
             </div>
             
         </div>
-        <div class="headerDown">
+        <!-- <div class="headerDown">
             <div class="listGenre">
                 <h4>Movie Genres</h4>
                 <div class="listGenre-content">
-                    <?php
-                    $filmPop = new FilmContr();
-                    $movieGenres = $filmPop->getGenres();
-                    foreach ($movieGenres as $movieGenre) {
-                        echo ' <a href="./genreMovie?id=' . $movieGenre['id'] .'">' . $movieGenre['name'] . '</a>';
-                    }
-                    ?>
+                  
                 </div>
             </div>
             <div class="listGenre">
                 <h4>Tv series Genres</h4>
                 <div class="listGenre-content">
-                    <?php
-                    $tvGenres = $filmPop->getGenresTv();
-                    foreach ($tvGenres as $tvGenre) {
-                        echo ' <a href="./genreSeries?id=' . $tvGenre['id'] .'">' . $tvGenre['name'] . '</a>';
-                    }
-                    ?>
+                    
                 </div>
             </div>
-        </div>
+        </div> -->
     </header>
     <main class="errorPage">
         <div class="error404"></div>

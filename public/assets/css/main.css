@@ -440,6 +440,15 @@
   border-radius: 20px;
 }
 
+@media screen and (max-width: 1100px) {
+  .home .filmPopular .sliderFilmPopulaire {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .FilmCategory {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 @media screen and (max-width: 900px) {
   .headerUp {
     display: block;
@@ -469,6 +478,40 @@
   }
   .headerUp .menu-btn {
     visibility: visible;
+  }
+
+  .home .filmPopular .sliderFilmPopulaire {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .FilmCategory {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 700px) {
+  .home article {
+    font-size: 1.5rem;
+  }
+  .home .carousel {
+    height: 20vh;
+  }
+  .home .carousel .slider {
+    height: 100%;
+  }
+  .home .carousel .titleFilmPopulaire {
+    font-size: 0.8rem;
+  }
+  .home .filmPopular .sliderFilmPopulaire {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .FilmCategory {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media screen and (max-width: 500px) {
+  .home .filmPopular .sliderFilmPopulaire {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 .error404 {
@@ -795,7 +838,7 @@ header .headerDown .listGenre-content a {
   margin-left: 2px;
   color: #FFFFFF;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1rem;
+  font-size: 0.8rem;
   border-radius: 5px;
   background-color: #1394DA;
   padding: 2px;

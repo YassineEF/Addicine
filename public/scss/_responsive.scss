@@ -1,73 +1,93 @@
-@media screen and (max-width: 900px){
-        .headerUp{
-            display: block;
-            padding: 0;
-            .searchBar{
-                width: 100%;
-                display: inline-flex;
-                justify-content: center;
-                margin-bottom: 15px;
-                input{
-                   width: 90%; 
-                }
+@media screen and (max-width: 1100px){
+    .home{
+        .filmPopular{
+            .sliderFilmPopulaire{
+                grid-template-columns: repeat(4, 1fr);
             }
-            ul{
-                display: none;
-                flex-direction: column;
-                li{
-                    text-align: center;
-                    font-size: 28px;
-                    padding: 25px;
-                    display: block;
-                }
-                &.open{
-                    display: flex;
-                }
-            }
-            .menu-btn{
-                visibility: visible;
-            }
-            // .bar{
-            //     display: block;
-            //     position: absolute;
-            //     top:15px;
-            //     right: 80px;
-            //     cursor: pointer;
-            //     #times{
-            //         display: none;
+        }
+    }
+    .FilmCategory{
+        grid-template-columns: repeat(3, 1fr);
+    }
 
-            //     }
-            //     #bars{
-            //         display: none;
-            //     }
-            // }
+}
+@media screen and (max-width: 900px){
+    
+}
+@media screen and (max-width: 900px){
+    .headerUp{
+        display: block;
+        padding: 0;
+        .searchBar{
+            width: 100%;
+            display: inline-flex;
+            justify-content: center;
+            margin-bottom: 15px;
+            input{
+                width: 90%; 
+            }
+        }
+        ul{
+            display: none;
+            flex-direction: column;
+            li{
+                text-align: center;
+                font-size: 28px;
+                padding: 25px;
+                display: block;
+            }
+            &.open{
+                display: flex;
+            }
+        }
+        .menu-btn{
+            visibility: visible;
+        }
+    }
+    .home{
+        .filmPopular{
+            .sliderFilmPopulaire{
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+    .FilmCategory{
+        grid-template-columns: repeat(2, 1fr);
+    }    
+}
+
+@media screen and (max-width: 700px){
+    .home{
+        article{
+            font-size: 1.5rem;
+        }
+        .carousel{
+            height: 20vh;
+            .slider{
+                height: 100%;
+            }
+            .titleFilmPopulaire{
+                font-size: 0.8rem;
+            }
         }
         
-        // #check:checked ~ .headerUp .bar #times{
-        //     display: block;
-        // }
-        // #check:checked ~ .headerUp .bar #bars{
-        //     display: none;
-        // }
-//     .menu-btn{
-//         visibility: visible;
-//     }
-//     .navbar{
-//         visibility: hidden;
-//     }
+        .filmPopular{
+            .sliderFilmPopulaire{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-//     .open{
-//         visibility: visible;
-//         display: block!important;
-//         height: 100%;
-//         width: 100%;
-//         z-index:40;
-//         position: absolute;
-//         top: 0;
-//         left: 50%;
-//         transform: translateX(-50%);
-//         background-color: $primary-color;
-
-
-//     }
+    } 
+    .FilmCategory{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media screen and (max-width: 500px){
+    .home{
+        .filmPopular{
+            .sliderFilmPopulaire{
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    } 
 }

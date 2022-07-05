@@ -12,7 +12,29 @@
 
 }
 @media screen and (max-width: 900px){
-    
+    .singleMovie {
+        .singleFilmMid {
+            .singleFilmPosterResume{
+                display: block;
+                text-align: center;
+                .singleFilmCenterDown{
+                    margin: 10px;
+                }
+            }  
+            .info{
+                display: block;
+                text-align: center;
+                .Trailer{
+                    margin-top: 5%;
+                    iframe{
+                        width: 300px;
+                        height: 250px;
+                    }
+                }
+            }  
+        } 
+         
+    }
 }
 @media screen and (max-width: 900px){
     .headerUp{
@@ -53,7 +75,19 @@
     }
     .FilmCategory{
         grid-template-columns: repeat(2, 1fr);
-    }    
+    }  
+    
+    .singleMovie {
+        .singleFilmDown{
+            .FilmActorTitle{
+                text-align: center;
+            }
+            .actorsSingleFilm{
+                margin-top: 10%;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }  
+    }  
 }
 
 @media screen and (max-width: 700px){
@@ -90,4 +124,11 @@
             }
         }
     } 
+    .singleMovie {
+        .singleFilmDown{
+            .actorsSingleFilm{
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }  
+    }
 }

@@ -71,22 +71,7 @@
         
 
     }
-    // .bar{
-    //     position: relative;
-    //     margin: auto;
-    //     display: none;
-    //     span{
-    //         position: absolute;
-    //         color: $secondary-color;
-    //         font-size: 25px;
-    //     }
-    // }
 }  
-
-// input[type="checkbox"]{
-//     -webkit-appearance: none;
-//     display: none;
-// }
 
 
 .menu-btn{
@@ -94,7 +79,7 @@
     position: absolute;
     z-index: 1;
     right: 1rem;
-    top: 1rem;
+    top: 0;
     height: 20px;
     width: 28px;
     cursor: pointer;

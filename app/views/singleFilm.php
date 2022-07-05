@@ -95,7 +95,7 @@ if (sizeof($Single) <= 3) {
                         $filmPop = new FilmContr();
                         $movieGenres = $filmPop->getGenres();
                         foreach ($movieGenres as $movieGenre) {
-                            echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '&genre=' . $movieGenre['name'] . '">' . $movieGenre['name'] . '</a>';
+                            echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '">' . $movieGenre['name'] . '</a>';
                         }
                         ?>
                     </div>
@@ -106,7 +106,7 @@ if (sizeof($Single) <= 3) {
                         <?php
                         $tvGenres = $filmPop->getGenresTv();
                         foreach ($tvGenres as $tvGenre) {
-                            echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '&genre=' . $tvGenre['name'] . '">' . $tvGenre['name'] . '</a>';
+                            echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '">' . $tvGenre['name'] . '</a>';
                         }
                         ?>
                     </div>
@@ -218,6 +218,7 @@ if (sizeof($Single) <= 3) {
 
             </div>
         </main>
+        <script src="../../public/assets/js/app.js"></script>
     </body>
 
     </html>

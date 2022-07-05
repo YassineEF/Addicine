@@ -89,44 +89,6 @@ if (sizeof($Single) <= 3) {
                 <div class="menu-btn">
                     <span class="menu-btn_burger"></span>
                 </div>
-                <!-- <label for="check" class="bar">
-                 <span class="fa fa-bars" id="bars"></span>
-                 <span class="fa fa-times" id="times"></span>
-             </label> -->
-                <!-- <div class="menu-btn">
-                 <span class="menu-btn_burger"></span>
-             </div> -->
-                <!-- <nav class="navbar">
-                 <div class="center">
-                     <ul class="menu-nav">
-                         <div class="dropdownMenu">
-                             <li>Movie</li>
-                             <div class="dropdown-content">
-                                 <a href="./categoryFilm?category=top_ratedwith dropdown menu
-                             ">Top Rated</a>
-                                 <a href="./categoryFilm?category=popular">Popular</a>
-                                 <a href="./categoryFilm?category=upcoming">Upcoming</a>
-                             </div>
-                         </div>
-                         <div class="dropdownMenu">
-                             <li>Tv series</li>
-                             <div class="dropdown-content">
-                                 <a href="./categoryTv?category=top_rated">Top Rated</a>
-                                 <a href="./categoryTv?category=popular">Popular</a>
-                                 <a href="./categoryTv?category=on_the_air">On the air</a>
-                             </div>
-                         </div>
-
-                     </ul>
-                 </div>
-
-                 <div class="right">
-                     <form action="./find.php" method="get" class="searchBar" id="searchForm">
-                         <input type="text" class="search" name="keyWord" id="keyWord" required>
-                         <i class="fa fa-search" id="searchLogo"></i>
-                     </form>
-                 </div>
-             </nav> -->
             </div>
             <div class="headerDown">
                 <div class="listGenre">
@@ -136,7 +98,7 @@ if (sizeof($Single) <= 3) {
                         $filmPop = new FilmContr();
                         $movieGenres = $filmPop->getGenres();
                         foreach ($movieGenres as $movieGenre) {
-                            echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '&genre=' . $movieGenre['name'] . '">' . $movieGenre['name'] . '</a>';
+                            echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '">' . $movieGenre['name'] . '</a>';
                         }
                         ?>
                     </div>
@@ -147,7 +109,7 @@ if (sizeof($Single) <= 3) {
                         <?php
                         $tvGenres = $filmPop->getGenresTv();
                         foreach ($tvGenres as $tvGenre) {
-                            echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '&genre=' . $tvGenre['name'] . '">' . $tvGenre['name'] . '</a>';
+                            echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '">' . $tvGenre['name'] . '</a>';
                         }
                         ?>
                     </div>
@@ -168,10 +130,9 @@ if (sizeof($Single) <= 3) {
                 <div class="singleFilmPosterResume">
                     <div class="singleFilmLeft">
                         <?php
-                        if($Single['poster_path'] == null){
+                        if ($Single['poster_path'] == null) {
                             echo '<img src="../../public/assets/img/ProfilePicNA.png" alt="' . $Single['name'] . '" >';
-
-                        }else{
+                        } else {
 
                             echo '<img src="https://image.tmdb.org/t/p/w500' . $Single['poster_path'] . '" alt="' . $Single['name'] . '" >';
                         }
@@ -275,6 +236,7 @@ if (sizeof($Single) <= 3) {
                 </div>
 
             </div>
+            <script src="../../public/assets/js/app.js"></script>
         </main>
     </body>
 

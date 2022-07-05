@@ -124,7 +124,7 @@ if(sizeof($allFilmGenre) <= 3 || !is_numeric($id)){
                 // var_dump($oneTvCat);
                 echo '<figure>';
                 if($filmParGenre['poster_path']  == null){
-                    echo '<a href="./singleFilm?id=' . $filmParGenre['id'] . '"><img src="../../public/assets/img/ProfilePicNA.png"alt="' . $filmParGenre['title'] . '" class="">';
+                    echo '<a href="./singleFilm?id=' . $filmParGenre['id'] . '"><img src="../../public/assets/img/ProfilePicNA.png" alt="' . $filmParGenre['title'] . '" class="">';
                 }else{
                     echo '<a href="./singleFilm?id=' . $filmParGenre['id'] . '"><img src="https://image.tmdb.org/t/p/w342' . $filmParGenre['poster_path'] . '"alt="' . $filmParGenre['title'] . '" class="">';
                 }
@@ -147,16 +147,6 @@ if(sizeof($allFilmGenre) <= 3 || !is_numeric($id)){
                 $page +=  1;
                 echo '<a href="./genreMovie?id='.$id.'&page=' . $page . '" >Next <i class="fas fa-chevron-circle-right"></i></a>';
             }
-            // if($category == 'upcoming'){
-            //     if ($page == 20) {
-            //         echo '<a href="#" >No more pages</a>';
-            //     } else {
-            //         $page +=  1;
-            //         echo '<a href="./genreMovie?id=' . $movieGenre['id'] . '&genre=' . $movieGenre['name'] . '"&page=' . $page . '" >Next <i class="fas fa-chevron-circle-right"></i></a>';
-            //     }
-            // }else{
-            
-            // }
 
 
             ?>

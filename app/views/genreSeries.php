@@ -1,156 +1,161 @@
 <?php
-//save the get from other page
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $genre = $_GET['genre'];
-}
 include '../includes/autoloader.inc.php';
 
 //Env variable
 (new DotEnv(__DIR__ . '/.env'))->load();
+//save the get from other page
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    // $genre = $_GET['genre'];
+}
+
+if (!isset($_GET['page'])) {
+
+    $page = 1;
+    $pagePrevious = 1;
+} else {
+    $page = $_GET['page'];
+    $pagePrevious = $_GET['page'];
+}
+
+$genreSerie = new genreSerieContr($id, $page);
+$allSerieGenre = $genreSerie->checkData();
+$listGenreTv = $genreSerie->getGenresTv();
+if (sizeof($allSerieGenre) <= 3 || !is_numeric($id)) {
+    header("Location: ./Error.php");
+} else {
 ?>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <!-- META -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- TITLE -->
-    <title>Addicine</title>
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="../../public/assets/css/main.css">
-    <!-- FONT-AWSOME -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-</head>
+    <head>
+        <!-- META -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- TITLE -->
+        <title>Addicine</title>
+        <!-- FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+        <!-- CSS -->
+        <link rel="stylesheet" href="../../public/assets/css/main.css">
+        <!-- FONT-AWSOME -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    </head>
 
-<body>
-<header>
-         <div class="headerUp">
+    <body>
+        <header>
+            <div class="headerUp">
 
-             <div class="left">
-                 <a href="./home.php"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
-             </div>
-             <form action="./find.php" method="get" class="searchBar" id="searchForm">
-                 <input type="text" class="search" name="keyWord" id="keyWord" required>
-                 <i class="fa fa-search" id="searchLogo"></i>
-             </form>
-             <ul class="menu-nav">
-                 <div class="dropdownMenu">
-                     <li>Movie</li>
-                     <div class="dropdown-content">
-                         <a href="./categoryFilm?category=top_rated">Top Rated</a>
-                         <a href="./categoryFilm?category=popular">Popular</a>
-                         <a href="./categoryFilm?category=upcoming">Upcoming</a>
-                     </div>
-                 </div>
-                 <div class="dropdownMenu">
-                     <li>Tv series</li>
-                     <div class="dropdown-content">
-                         <a href="./categoryTv?category=top_rated">Top Rated</a>
-                         <a href="./categoryTv?category=popular">Popular</a>
-                         <a href="./categoryTv?category=on_the_air">On the air</a>
-                     </div>
-                 </div>
+                <div class="left">
+                    <a href="./home.php"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
+                </div>
+                <form action="./find.php" method="get" class="searchBar" id="searchForm">
+                    <input type="text" class="search" name="keyWord" id="keyWord" required>
+                    <i class="fa fa-search" id="searchLogo"></i>
+                </form>
+                <ul class="menu-nav">
+                    <div class="dropdownMenu">
+                        <li>Movie</li>
+                        <div class="dropdown-content">
+                            <a href="./categoryFilm?category=top_rated">Top Rated</a>
+                            <a href="./categoryFilm?category=popular">Popular</a>
+                            <a href="./categoryFilm?category=upcoming">Upcoming</a>
+                        </div>
+                    </div>
+                    <div class="dropdownMenu">
+                        <li>Tv series</li>
+                        <div class="dropdown-content">
+                            <a href="./categoryTv?category=top_rated">Top Rated</a>
+                            <a href="./categoryTv?category=popular">Popular</a>
+                            <a href="./categoryTv?category=on_the_air">On the air</a>
+                        </div>
+                    </div>
 
-             </ul>
-             <div class="menu-btn">
-                 <span class="menu-btn_burger"></span>
-             </div>
-             <!-- <label for="check" class="bar">
-                 <span class="fa fa-bars" id="bars"></span>
-                 <span class="fa fa-times" id="times"></span>
-             </label> -->
-             <!-- <div class="menu-btn">
-                 <span class="menu-btn_burger"></span>
-             </div> -->
-             <!-- <nav class="navbar">
-                 <div class="center">
-                     <ul class="menu-nav">
-                         <div class="dropdownMenu">
-                             <li>Movie</li>
-                             <div class="dropdown-content">
-                                 <a href="./categoryFilm?category=top_ratedwith dropdown menu
-                             ">Top Rated</a>
-                                 <a href="./categoryFilm?category=popular">Popular</a>
-                                 <a href="./categoryFilm?category=upcoming">Upcoming</a>
-                             </div>
-                         </div>
-                         <div class="dropdownMenu">
-                             <li>Tv series</li>
-                             <div class="dropdown-content">
-                                 <a href="./categoryTv?category=top_rated">Top Rated</a>
-                                 <a href="./categoryTv?category=popular">Popular</a>
-                                 <a href="./categoryTv?category=on_the_air">On the air</a>
-                             </div>
-                         </div>
-
-                     </ul>
-                 </div>
-
-                 <div class="right">
-                     <form action="./find.php" method="get" class="searchBar" id="searchForm">
-                         <input type="text" class="search" name="keyWord" id="keyWord" required>
-                         <i class="fa fa-search" id="searchLogo"></i>
-                     </form>
-                 </div>
-             </nav> -->
-         </div>
-         <div class="headerDown">
-             <div class="listGenre">
-                 <h4>Movie Genres</h4>
-                 <div class="listGenre-content">
-                     <?php
+                </ul>
+                <div class="menu-btn">
+                    <span class="menu-btn_burger"></span>
+                </div>
+            </div>
+            <div class="headerDown">
+                <div class="listGenre">
+                    <h4>Movie Genres</h4>
+                    <div class="listGenre-content">
+                        <?php
                         $filmPop = new FilmContr();
                         $movieGenres = $filmPop->getGenres();
                         foreach ($movieGenres as $movieGenre) {
-                            echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '&genre=' . $movieGenre['name'] . '">' . $movieGenre['name'] . '</a>';
+                            echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '">' . $movieGenre['name'] . '</a>';
                         }
                         ?>
-                 </div>
-             </div>
-             <div class="listGenre">
-                 <h4>Tv series Genres</h4>
-                 <div class="listGenre-content">
-                     <?php
+                    </div>
+                </div>
+                <div class="listGenre">
+                    <h4>Tv series Genres</h4>
+                    <div class="listGenre-content">
+                        <?php
                         $tvGenres = $filmPop->getGenresTv();
                         foreach ($tvGenres as $tvGenre) {
-                            echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '&genre=' . $tvGenre['name'] . '">' . $tvGenre['name'] . '</a>';
+                            echo ' <a href="./genreSeries?id=' . $tvGenre['id'] .  '">' . $tvGenre['name'] . '</a>';
                         }
                         ?>
-                 </div>
-             </div>
-         </div>
-     </header>
-    <div class="line"> </div>
-    <main>
-        <h2 class="FilmCategoryTitle"><?= $genre ?></h2>
-        <div class="FilmCategory">
-            <?php
-            $genreSerie = new genreSerieContr($id);
-            $allSerieGenre = $genreSerie->checkData();
-            foreach ($allSerieGenre as $serieParGenre) {
-                // var_dump($oneTvCat);
-                echo '<figure>';
-                echo '<a href="./singleSerie?id=' . $serieParGenre['id'] . '"><img src="https://image.tmdb.org/t/p/w342' . $serieParGenre['poster_path'] . '"alt="' . $serieParGenre['name'] . '" class="">';
-                echo '<figcaption>' . $serieParGenre['name'] . '</figcaption></a>';
-                echo '</figure>';
-            }
-            ?>
-        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="line"> </div>
+        <main>
+            <h2 class="FilmCategoryTitle"><?php
+                                            foreach ($listGenreTv as $genreActual) {
+                                                if ($genreActual['id'] == $id) {
+                                                    echo $genreActual['name'];
+                                                }
+                                            }
+                                            ?></h2>
+            <div class="FilmCategory">
+                <?php
 
-    </main>
+                foreach ($allSerieGenre as $serieParGenre) {
+                    // var_dump($oneTvCat);
+                    echo '<figure>';
+                    if ($serieParGenre['poster_path'] == null) {
+                        echo '<a href="./singleSerie?id=' . $serieParGenre['id'] . '"><img src="../../public/assets/img/ProfilePicNA.png" alt="' . $serieParGenre['name'] . '" class="">';
+                    } else {
+                        echo '<a href="./singleSerie?id=' . $serieParGenre['id'] . '"><img src="https://image.tmdb.org/t/p/w342' . $serieParGenre['poster_path'] . '"alt="' . $serieParGenre['name'] . '" class="">';
+                    }
+                    echo '<figcaption>' . $serieParGenre['name'] . '</figcaption></a>';
+                    echo '</figure>';
+                }
+                ?>
+            </div>
+            <div class="buttonsPages">
+                <?php
+                if ($pagePrevious <= 1) {
+                    echo '<a href="#">No previous pages</a>';
+                } else {
+                    $pagePrevious -=  1;
+                    echo '<a href="./genreSeries?id=' . $id . '&page=' . $pagePrevious . '" > <i class="fas fa-chevron-circle-left"></i> Previous</a>';
+                }
+                if ($page == 500) {
+                    echo '<a href="#" >No more pages</a>';
+                } else {
+                    $page +=  1;
+                    echo '<a href="./genreSeries?id=' . $id . '&page=' . $page . '" >Next <i class="fas fa-chevron-circle-right"></i></a>';
+                }
+                
 
-    <script src="../../public/assets/js/app.js"></script>
-</body>
+                ?>
+            </div>
 
-</html>
+        </main>
+
+        <script src="../../public/assets/js/app.js"></script>
+    </body>
+
+    </html>
 <?php
-$genreSerie->close();
-
+    $genreSerie->close();
+}
 ?>

@@ -47,103 +47,65 @@ function convertDate($dateAmerican)
 </head>
 
 <body>
-<header>
-         <div class="headerUp">
+    <header>
+        <div class="headerUp">
 
-             <div class="left">
-                 <a href="./home.php"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
-             </div>
-             <form action="./find.php" method="get" class="searchBar" id="searchForm">
-                 <input type="text" class="search" name="keyWord" id="keyWord" required>
-                 <i class="fa fa-search" id="searchLogo"></i>
-             </form>
-             <ul class="menu-nav">
-                 <div class="dropdownMenu">
-                     <li>Movie</li>
-                     <div class="dropdown-content">
-                         <a href="./categoryFilm?category=top_rated">Top Rated</a>
-                         <a href="./categoryFilm?category=popular">Popular</a>
-                         <a href="./categoryFilm?category=upcoming">Upcoming</a>
-                     </div>
-                 </div>
-                 <div class="dropdownMenu">
-                     <li>Tv series</li>
-                     <div class="dropdown-content">
-                         <a href="./categoryTv?category=top_rated">Top Rated</a>
-                         <a href="./categoryTv?category=popular">Popular</a>
-                         <a href="./categoryTv?category=on_the_air">On the air</a>
-                     </div>
-                 </div>
+            <div class="left">
+                <a href="./home.php"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
+            </div>
+            <form action="./find.php" method="get" class="searchBar" id="searchForm">
+                <input type="text" class="search" name="keyWord" id="keyWord" required>
+                <i class="fa fa-search" id="searchLogo"></i>
+            </form>
+            <ul class="menu-nav">
+                <div class="dropdownMenu">
+                    <li>Movie</li>
+                    <div class="dropdown-content">
+                        <a href="./categoryFilm?category=top_rated">Top Rated</a>
+                        <a href="./categoryFilm?category=popular">Popular</a>
+                        <a href="./categoryFilm?category=upcoming">Upcoming</a>
+                    </div>
+                </div>
+                <div class="dropdownMenu">
+                    <li>Tv series</li>
+                    <div class="dropdown-content">
+                        <a href="./categoryTv?category=top_rated">Top Rated</a>
+                        <a href="./categoryTv?category=popular">Popular</a>
+                        <a href="./categoryTv?category=on_the_air">On the air</a>
+                    </div>
+                </div>
 
-             </ul>
-             <div class="menu-btn">
-                 <span class="menu-btn_burger"></span>
-             </div>
-             <!-- <label for="check" class="bar">
-                 <span class="fa fa-bars" id="bars"></span>
-                 <span class="fa fa-times" id="times"></span>
-             </label> -->
-             <!-- <div class="menu-btn">
-                 <span class="menu-btn_burger"></span>
-             </div> -->
-             <!-- <nav class="navbar">
-                 <div class="center">
-                     <ul class="menu-nav">
-                         <div class="dropdownMenu">
-                             <li>Movie</li>
-                             <div class="dropdown-content">
-                                 <a href="./categoryFilm?category=top_ratedwith dropdown menu
-                             ">Top Rated</a>
-                                 <a href="./categoryFilm?category=popular">Popular</a>
-                                 <a href="./categoryFilm?category=upcoming">Upcoming</a>
-                             </div>
-                         </div>
-                         <div class="dropdownMenu">
-                             <li>Tv series</li>
-                             <div class="dropdown-content">
-                                 <a href="./categoryTv?category=top_rated">Top Rated</a>
-                                 <a href="./categoryTv?category=popular">Popular</a>
-                                 <a href="./categoryTv?category=on_the_air">On the air</a>
-                             </div>
-                         </div>
-
-                     </ul>
-                 </div>
-
-                 <div class="right">
-                     <form action="./find.php" method="get" class="searchBar" id="searchForm">
-                         <input type="text" class="search" name="keyWord" id="keyWord" required>
-                         <i class="fa fa-search" id="searchLogo"></i>
-                     </form>
-                 </div>
-             </nav> -->
-         </div>
-         <div class="headerDown">
-             <div class="listGenre">
-                 <h4>Movie Genres</h4>
-                 <div class="listGenre-content">
-                     <?php
-                        $filmPop = new FilmContr();
-                        $movieGenres = $filmPop->getGenres();
-                        foreach ($movieGenres as $movieGenre) {
-                            echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '&genre=' . $movieGenre['name'] . '">' . $movieGenre['name'] . '</a>';
-                        }
-                        ?>
-                 </div>
-             </div>
-             <div class="listGenre">
-                 <h4>Tv series Genres</h4>
-                 <div class="listGenre-content">
-                     <?php
-                        $tvGenres = $filmPop->getGenresTv();
-                        foreach ($tvGenres as $tvGenre) {
-                            echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '&genre=' . $tvGenre['name'] . '">' . $tvGenre['name'] . '</a>';
-                        }
-                        ?>
-                 </div>
-             </div>
-         </div>
-     </header>
+            </ul>
+            <div class="menu-btn">
+                <span class="menu-btn_burger"></span>
+            </div>
+        </div>
+        <div class="headerDown">
+            <div class="listGenre">
+                <h4>Movie Genres</h4>
+                <div class="listGenre-content">
+                    <?php
+                    $filmPop = new FilmContr();
+                    $movieGenres = $filmPop->getGenres();
+                    foreach ($movieGenres as $movieGenre) {
+                        echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '">' . $movieGenre['name'] . '</a>';
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="listGenre">
+                <h4>Tv series Genres</h4>
+                <div class="listGenre-content">
+                    <?php
+                    $tvGenres = $filmPop->getGenresTv();
+                    foreach ($tvGenres as $tvGenre) {
+                        echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '">' . $tvGenre['name'] . '</a>';
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </header>
     <main class="singleActor">
         <?php
         $actor = new SingleActorContr($id);
@@ -156,7 +118,11 @@ function convertDate($dateAmerican)
         <div class="singleActorCenter">
             <div class="singleActorPhoto">
                 <?php
-                echo '<img src="https://image.tmdb.org/t/p/w185' . $singleActor['profile_path'] . '" alt="' . $singleActor['name'] . '" >';
+                if($singleActor['profile_path'] == null){
+                    echo '<img src="../../public/assets/img/ProfilePicNA.png" alt="' . $singleActor['name'] . '" >';
+                }else{
+                    echo '<img src="https://image.tmdb.org/t/p/w185' . $singleActor['profile_path'] . '" alt="' . $singleActor['name'] . '" >';
+                }
                 ?>
             </div>
             <div class="singleActorinfo">
@@ -178,7 +144,7 @@ function convertDate($dateAmerican)
                 }
                 echo '<p  class="miniTitle">Place of birth:</p>';
                 echo '<p>' . $singleActor['place_of_birth'] . '</p>';
-                
+
 
 
                 ?>
@@ -189,19 +155,17 @@ function convertDate($dateAmerican)
                 <h3>Movie</h3>
                 <?php
                 foreach ($moviesActor as $movie) {
-                    if ($movie['media_type'] == 'movie' ) {
+                    if ($movie['media_type'] == 'movie') {
                         // var_dump($movie['id']);
-                        if(!array_key_exists('release_date', $movie)){
-                            echo "<p><a href='./singleFilm?id=".$movie['id']."'>Release date not available:  " . $movie['title'] . "  (" . $movie['character'] . ")</a></p>";
-
-                        }else{
+                        if (!array_key_exists('release_date', $movie)) {
+                            echo "<p><a href='./singleFilm?id=" . $movie['id'] . "'>Release date not available:  " . $movie['title'] . "  (" . $movie['character'] . ")</a></p>";
+                        } else {
                             if ($movie['release_date'] == '') {
-                                echo "<p><a href='./singleFilm?id=".$movie['id']."'>Release date not available:  " . $movie['title'] . "  (" . $movie['character'] . ")</a></p>";
+                                echo "<p><a href='./singleFilm?id=" . $movie['id'] . "'>Release date not available:  " . $movie['title'] . "  (" . $movie['character'] . ")</a></p>";
                             } else {
-                                echo "<p><a href='./singleFilm?id=".$movie['id']."'>" . convertDate($movie['release_date']) . ":  " . $movie['title'] . "  (" . $movie['character'] . ")</a></p>";
+                                echo "<p><a href='./singleFilm?id=" . $movie['id'] . "'>" . convertDate($movie['release_date']) . ":  " . $movie['title'] . "  (" . $movie['character'] . ")</a></p>";
                             }
                         }
-                        
                     }
                 }
                 ?>
@@ -212,9 +176,9 @@ function convertDate($dateAmerican)
                 foreach ($moviesActor as $movie) {
                     if ($movie['media_type'] == 'tv') {
                         if ($movie['first_air_date'] == " ") {
-                            echo "<p><a href='./singleSerie?id=".$movie['id']."'>First air date not available:  " . $movie['name'] . " (" . $movie['character'] . ")</a></p>";
+                            echo "<p><a href='./singleSerie?id=" . $movie['id'] . "'>First air date not available:  " . $movie['name'] . " (" . $movie['character'] . ")</a></p>";
                         } else {
-                            echo "<p><a href='./singleSerie?id=".$movie['id']."'>" . convertDate($movie['first_air_date']) . ":  " . $movie['name'] . " (" . $movie['character'] . ")</a></p>";
+                            echo "<p><a href='./singleSerie?id=" . $movie['id'] . "'>" . convertDate($movie['first_air_date']) . ":  " . $movie['name'] . " (" . $movie['character'] . ")</a></p>";
                         }
                     }
                 }
@@ -224,8 +188,10 @@ function convertDate($dateAmerican)
             </div>
 
         </div>
-
+        <script src="../../public/assets/js/app.js"></script>
     </main>
+
+    
 </body>
 
 </html>

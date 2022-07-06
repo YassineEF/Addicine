@@ -9,10 +9,25 @@
     .FilmCategory{
         grid-template-columns: repeat(3, 1fr);
     }
+    .singleActor {
+        .singleActorCenter{
+            display: block;
+            text-align: center;
+        }
+        .singleActorDown{
+            display: block;
+            text-align: center;
+        }
+    }
 
 }
 @media screen and (max-width: 900px){
     .singleMovie {
+        .singleFilmUp{
+            .singleFilmTitle{
+                font-size: 1.5rem;
+            }
+        }
         .singleFilmMid {
             .singleFilmPosterResume{
                 display: block;
@@ -114,6 +129,13 @@
     } 
     .FilmCategory{
         grid-template-columns: repeat(1, 1fr);
+    }
+    .singleMovie {
+        .singleFilmUp{
+            .singleFilmTitle{
+                font-size: 1rem;
+            }
+        }
     }
 }
 @media screen and (max-width: 500px){

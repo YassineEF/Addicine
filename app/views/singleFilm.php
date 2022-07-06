@@ -58,7 +58,7 @@ if (sizeof($Single) <= 3) {
             <div class="headerUp">
 
                 <div class="left">
-                    <a href="#"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
+                    <a href="./home.php"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
                 </div>
                 <form action="./find.php" method="get" class="searchBar" id="searchForm">
                     <input type="text" class="search" name="keyWord" id="keyWord" required>

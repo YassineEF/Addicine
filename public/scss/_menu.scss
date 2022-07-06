@@ -6,10 +6,9 @@
     text-align: center;
     padding: 15px 30px;
 
-    ul{
-        display: flex;
+    .menu-nav{
         list-style: none;
-        margin: auto 50px;
+        margin: auto 0;
         li{
             margin: 0 2px;
             color: $secondary-color;
@@ -17,11 +16,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             padding: 5px 10px;
-            // &:hover{
-            //     background: $secondary-color;
-            //     color: $third-color;
-
-            // }
         }
     }
     .searchBar{
@@ -77,7 +71,7 @@
 .menu-btn{
     visibility: hidden;
     position: absolute;
-    z-index: 1;
+    z-index: 46;
     right: 1rem;
     top: 0;
     height: 20px;
@@ -119,6 +113,7 @@
 
 
         &.open{
+            position: fixed;
             transform: rotate(720deg);
             background: transparent;
 

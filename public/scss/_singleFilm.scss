@@ -1,108 +1,108 @@
-.singleMovie{
-    .singleFilmUp{
+.singleMovie {
+  .singleFilmUp {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: $font;
+    margin: 20px 0;
+    .singleFilmTitle {
+      color: $secondary-color;
+      text-transform: uppercase;
+    }
+    .singleFilmStatus {
+      color: $third-color;
+      margin: auto 10px;
+    }
+  }
+  .singleFilmMid {
+    margin: 40px;
+    .singleFilmPosterResume {
+      display: flex;
+      justify-content: space-between;
+      .singleFilmLeft {
+        height: 60vh;
+        img {
+          height: 100%;
+          border: 5px solid $secondary-color;
+          border-radius: 30px;
+        }
+      }
+      .singleFilmCenterDown {
+        margin: auto 10px;
         width: 100%;
-        display: flex;
-        justify-content: center;
-        text-align: center;
+        .singleFilmCenterDownParag {
+          padding: 10px;
+          color: $secondary-color;
+          font-family: $font;
+          background-color: rgba(0, 0, 0, 0.52);
+          text-transform: uppercase;
+          border-radius: 10px;
+          text-align: center;
+        }
+      }
+    }
+    .info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      .singleFilmCenter {
+        color: $secondary-color;
         font-family: $font;
-        margin: 20px 0;
-        .singleFilmTitle{
-            color: $secondary-color;
-            text-transform: uppercase;
+        text-transform: uppercase;
+        h2 {
+          font-size: 1.2rem;
+          margin: 30px 0 10px;
+          color: $third-color;
         }
-        .singleFilmStatus{
-            color: $third-color;
-            margin: auto 10px;
+      }
+      .singleFilmRight {
+        color: $secondary-color;
+        font-family: $font;
+        margin: 10px auto;
+        .miniTitle {
+          color: $third-color;
+          font-size: 1.2rem;
+          text-transform: uppercase;
         }
+      }
     }
-    .singleFilmMid{
-        margin: 40px;
-        .singleFilmPosterResume{
-            display: flex;
-            justify-content: space-between;
-            .singleFilmLeft{
-                height: 60vh;
-                img{
-                    height: 100%;
-                    border: 5px solid $secondary-color ;
-                    border-radius: 30px;
-                }
-            }
-            .singleFilmCenterDown{
-                margin: auto 10px;
-                width: 100%;
-                .singleFilmCenterDownParag{
-                    padding: 10px;
-                    color: $secondary-color;
-                    font-family: $font;
-                    background-color: rgba(0, 0, 0, 0.52);
-                    text-transform: uppercase;
-                    border-radius: 10px;
-                    text-align: center;
-                }
-            }
-        }
-        .info{
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            .singleFilmCenter{
-                color: $secondary-color;
-                font-family: $font;
-                text-transform: uppercase;
-                h2{
-                    font-size: 1.2rem;
-                    margin: 30px 0 10px;
-                    color: $third-color;
-                }
-            }
-            .singleFilmRight{
-                color: $secondary-color;
-                font-family: $font;
-                margin: 10px auto;
-                .miniTitle{
-                    color: $third-color;
-                    font-size: 1.2rem;
-                    text-transform: uppercase;
-                }
-            }
-        }  .NotAvailable{
-            font-family: $font;
-            color: $third-color;
-            text-transform: uppercase;
-        }
+    .NotAvailable {
+      font-family: $font;
+      color: $third-color;
+      text-transform: uppercase;
     }
-    .singleFilmDown{
-        margin: 30px auto;
-        .FilmActorTitle{
-            color: $third-color;
-            font-family: $font;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-        }
-        .actorsSingleFilm{
-            margin-top: 5%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            place-items: center;
-            text-align: center;
-            grid-gap: 20px;
-            img{
-                border-radius: 40px 0;
-            }
-            h4{
-                font-family: $font;
-                color: $secondary-color;
-                text-transform: uppercase;
-                .namePlaceholder{
-                    color: $third-color;
-                }
-            }
-            a{
-                color: inherit;
-                text-decoration: none;
-            }
-        }
-        
+  }
+  .singleFilmDown {
+    margin: 30px auto;
+    .FilmActorTitle {
+      color: $third-color;
+      font-family: $font;
+      font-size: 1.5rem;
+      text-transform: uppercase;
     }
+    .actorsSingleFilm {
+      margin-top: 5%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      place-items: center;
+      text-align: center;
+      grid-gap: 20px;
+      img {
+        border-radius: 40px 0;
+      }
+      h4 {
+        font-family: $font;
+        color: $secondary-color;
+        text-transform: uppercase;
+        .namePlaceholder {
+          color: $third-color;
+        }
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
 }

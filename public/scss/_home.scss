@@ -1,101 +1,97 @@
-.home{
-    // width: 100%;
-    article{
-        text-align: center;
+.home {
+  // width: 100%;
+  article {
+    text-align: center;
+    color: $secondary-color;
+    font-family: $font;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+  .carousel {
+    margin: 3%;
+    height: 40vh;
+    position: relative;
+    .slider {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 0.5s;
+      align-items: center;
+      border-radius: 55px 0;
+      &.active {
+        opacity: 1;
+      }
+    }
+    .titleFilmPopulaire {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%);
+      padding: 5px 10px;
+      color: $secondary-color;
+      text-shadow: $third-color 2px -5px;
+      font-family: $font;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      opacity: 0;
+      text-align: center;
+      &.active {
+        opacity: 1;
+      }
+    }
+    .next,
+    .previous {
+      color: $secondary-color;
+      font-size: 3rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    .next {
+      right: 1rem;
+    }
+    .previous {
+      left: 1rem;
+    }
+  }
+  .filmPopular {
+    width: 100%;
+    text-align: center;
+    margin-top: 10%;
+    h2 {
+      color: $secondary-color;
+      font-family: $font;
+      text-transform: uppercase;
+    }
+    .sliderFilmPopulaire {
+      margin-top: 5%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      width: 100%;
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      figure {
+        height: 300px;
+        margin: 10% 5%;
+        .posterPopularFilm {
+          height: 100%;
+          border: 5px solid $secondary-color;
+          border-radius: 20px;
+        }
+      }
+      figcaption {
         color: $secondary-color;
         font-family: $font;
-        font-size: 2rem;
         text-transform: uppercase;
+        font-size: 1rem;
+      }
     }
-    .carousel{
-        margin: 3%;
-        height: 40vh;
-        position: relative;
-        .slider{
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            object-fit: contain;
-            opacity: 0;
-            transition: opacity .5s;
-            align-items: center;
-            border-radius: 55px 0;
-            &.active{
-                opacity: 1;
-            }
-        }
-        .titleFilmPopulaire{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%);
-            padding: 5px 10px;
-            color: $secondary-color;
-            text-shadow: $third-color 2px -5px;
-            font-family: $font;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            opacity: 0;
-            text-align: center;
-            &.active{
-                opacity: 1;
-            }
-
-        }
-        .next, .previous{
-            color: $secondary-color;
-            font-size: 3rem;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-        .next{
-            right: 1rem;
-        }
-        .previous{
-            left: 1rem;
-        }
-    }
-    .filmPopular{
-        width: 100%;
-        text-align: center;
-        margin-top: 10%;
-        h2{
-            color: $secondary-color;
-            font-family: $font; 
-            text-transform: uppercase;
-        }
-        .sliderFilmPopulaire{
-            margin-top: 5%;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            // overflow-x: scroll;
-            // flex-wrap: wrap;
-            width: 100%;
-            a{
-                text-decoration: none;
-                color: inherit;
-            }
-            figure{
-                height: 300px;
-                margin: 10% 5%;
-                .posterPopularFilm{
-                    height: 100%;
-                    border: 5px solid $secondary-color;
-                    border-radius: 20px;
-                }
-            }
-            figcaption{
-                color: $secondary-color;
-                font-family: $font;
-                text-transform: uppercase;
-                font-size: 1rem;
-            }
-        }
-    }
-
-
+  }
 }

@@ -1,85 +1,81 @@
-@import 'config';
-@import 'home';
-@import 'menu';
-@import 'singleFilm';
-@import 'singleActor';
-@import 'filmCategory';
-@import 'responsive';
-@import '404';
+@import "config";
+@import "home";
+@import "menu";
+@import "singleFilm";
+@import "singleActor";
+@import "filmCategory";
+@import "responsive";
+@import "404";
 
-body{
-    background-color: $primary-color;
-    // background-color: $secondary-color;
- 
+body {
+  background-color: $primary-color;
 }
-header{
-
-        .dropdownMenu{
-            position: relative;
-            display: inline-block;
-            .dropdown-content{
-                display: none;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                background-color: $secondary-color;
-                border-radius: 20px;
-                min-width: 160px;
-                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                z-index: 1;
-                a{  
-                    font-family: $font;
-                    color: $primary-color;
-                    padding: 12px 16px;
-                    text-decoration: none;
-                    text-transform: uppercase;
-                    display: block;
-                    &:hover{
-                        background-color: $primary-color;
-                        color: $secondary-color;
-                    }
-                }
-            }
-            &:hover .dropdown-content{
-                display: block;
-            }
+header {
+  .dropdownMenu {
+    position: relative;
+    display: inline-block;
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $secondary-color;
+      border-radius: 20px;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      a {
+        font-family: $font;
+        color: $primary-color;
+        padding: 12px 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        &:hover {
+          background-color: $primary-color;
+          color: $secondary-color;
         }
-    .headerDown{
-        margin: 0 auto;
-        text-align: center;
-        .listGenre{
-            margin:5px auto 10px;
-            h4{
-                color: $third-color;
-                font-family: $font;
-                font-size: 1.2rem;
-                text-transform: uppercase;
-            }
-            &-content{
-                margin: 10px 0;
-
-                a{
-                    text-decoration: none;
-                    text-transform: uppercase;
-                    margin-left: 2px;
-                    color: $secondary-color;
-                    font-family: $font;
-                    font-size: 0.8rem;
-                    border-radius: 5px;
-                    background-color: $third-color;
-                    padding: 2px;
-                    &:hover{
-                        color: $third-color;
-                        background-color: $secondary-color;
-                    }
-                }
-            }
-        }
+      }
     }
-    
+    &:hover .dropdown-content {
+      display: block;
+    }
+  }
+  .headerDown {
+    margin: 0 auto;
+    text-align: center;
+    .listGenre {
+      margin: 5px auto 10px;
+      h4 {
+        color: $third-color;
+        font-family: $font;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+      }
+      &-content {
+        margin: 10px 0;
+
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+          margin-left: 2px;
+          color: $secondary-color;
+          font-family: $font;
+          font-size: 0.8rem;
+          border-radius: 5px;
+          background-color: $third-color;
+          padding: 2px;
+          &:hover {
+            color: $third-color;
+            background-color: $secondary-color;
+          }
+        }
+      }
+    }
+  }
 }
-.line{
-    margin: 2%;
-    height: 2%;
-    border-bottom: 1px solid $secondary-color;
+.line {
+  margin: 2%;
+  height: 2%;
+  border-bottom: 1px solid $secondary-color;
 }

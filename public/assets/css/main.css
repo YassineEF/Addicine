@@ -48,7 +48,8 @@
 .home .carousel .titleFilmPopulaire.active {
   opacity: 1;
 }
-.home .carousel .next, .home .carousel .previous {
+.home .carousel .next,
+.home .carousel .previous {
   color: #FFFFFF;
   font-size: 3rem;
   position: absolute;
@@ -106,12 +107,11 @@
   text-align: center;
   padding: 15px 30px;
 }
-.headerUp ul {
-  display: flex;
+.headerUp .menu-nav {
   list-style: none;
-  margin: auto 50px;
+  margin: auto 0;
 }
-.headerUp ul li {
+.headerUp .menu-nav li {
   margin: 0 2px;
   color: #FFFFFF;
   font-family: "Space Grotesk", sans-serif;
@@ -167,7 +167,7 @@
 .menu-btn {
   visibility: hidden;
   position: absolute;
-  z-index: 1;
+  z-index: 46;
   right: 1rem;
   top: 0;
   height: 20px;
@@ -205,6 +205,7 @@
   transition: all 0.5s ease-in-out;
 }
 .menu-btn_burger.open {
+  position: fixed;
   transform: rotate(720deg);
   background: transparent;
 }
@@ -457,6 +458,55 @@
   .singleActor .singleActorDown {
     display: block;
     text-align: center;
+  }
+
+  header .dropdownMenu .dropdown-content {
+    display: block;
+    position: static !important;
+    transform: none !important;
+  }
+
+  .headerUp {
+    display: block;
+    padding: 0;
+  }
+  .headerUp .searchBar {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  .headerUp .searchBar input {
+    width: 90%;
+  }
+  .headerUp .menu-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 45;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 25% 0 0;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.95);
+  }
+  .headerUp .menu-nav li {
+    text-align: center;
+    font-size: 28px;
+    padding: 25px;
+    display: block;
+  }
+  .headerUp .menu-nav.open {
+    display: flex;
+  }
+  .headerUp.open {
+    visibility: visible;
+  }
+  .headerUp .menu-btn {
+    visibility: visible;
   }
 }
 @media screen and (max-width: 900px) {

@@ -50,7 +50,7 @@ if (sizeof($allSerieGenre) <= 3 || !is_numeric($id)) {
             <div class="headerUp">
 
                 <div class="left">
-                    <a href="./home.php"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
+                    <a href="#"><img src="../../public/assets/img/Logo.png" alt="Logo Addicine"></a>
                 </div>
                 <form action="./find.php" method="get" class="searchBar" id="searchForm">
                     <input type="text" class="search" name="keyWord" id="keyWord" required>
@@ -73,37 +73,36 @@ if (sizeof($allSerieGenre) <= 3 || !is_numeric($id)) {
                             <a href="./categoryTv?category=on_the_air">On the air</a>
                         </div>
                     </div>
+                    <div class="dropdownMenu">
+                        <li>Movie Genre</li>
+                        <div class="dropdown-content">
+                            <?php
+                            $filmPop = new FilmContr();
+                            $movieGenres = $filmPop->getGenres();
+                            foreach ($movieGenres as $movieGenre) {
+                                echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '">' . $movieGenre['name'] . '</a>';
+                            }
+                            ?>
+                        </div>
+                    </div>
 
+                    <div class="dropdownMenu">
+                        <li>Tv series Genre</li>
+                        <div class="dropdown-content">
+                            <?php
+                            $tvGenres = $filmPop->getGenresTv();
+                            foreach ($tvGenres as $tvGenre) {
+                                echo ' <a href="./genreSeries?id=' . $tvGenre['id'] . '">' . $tvGenre['name'] . '</a>';
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </ul>
                 <div class="menu-btn">
                     <span class="menu-btn_burger"></span>
                 </div>
             </div>
-            <div class="headerDown">
-                <div class="listGenre">
-                    <h4>Movie Genres</h4>
-                    <div class="listGenre-content">
-                        <?php
-                        $filmPop = new FilmContr();
-                        $movieGenres = $filmPop->getGenres();
-                        foreach ($movieGenres as $movieGenre) {
-                            echo ' <a href="./genreMovie?id=' . $movieGenre['id'] . '">' . $movieGenre['name'] . '</a>';
-                        }
-                        ?>
-                    </div>
-                </div>
-                <div class="listGenre">
-                    <h4>Tv series Genres</h4>
-                    <div class="listGenre-content">
-                        <?php
-                        $tvGenres = $filmPop->getGenresTv();
-                        foreach ($tvGenres as $tvGenre) {
-                            echo ' <a href="./genreSeries?id=' . $tvGenre['id'] .  '">' . $tvGenre['name'] . '</a>';
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
+
         </header>
         <div class="line"> </div>
         <main>
@@ -144,7 +143,7 @@ if (sizeof($allSerieGenre) <= 3 || !is_numeric($id)) {
                     $page +=  1;
                     echo '<a href="./genreSeries?id=' . $id . '&page=' . $page . '" >Next <i class="fas fa-chevron-circle-right"></i></a>';
                 }
-                
+
 
                 ?>
             </div>
